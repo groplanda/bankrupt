@@ -1,0 +1,228 @@
+description = "Home page"
+
+[quiz]
+quizName = 1
+
+[formwidget]
+formType = "first"
+
+[advantage]
+advantageName = 1
+
+[feedbacklist]
+maxFeeds = 0
+feedType = "list"
+sortOrder = "desc"
+
+[services]
+serviceName = 1
+
+[faq]
+
+[formwidget formwidget2]
+formType = "third"
+
+[advantage advantage2]
+advantageName = 2
+
+[advantage advantage3]
+advantageName = 3
+
+[contents]
+contentType = "left"
+contentId = 1
+
+[services services2]
+serviceName = 2
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial "site/meta" %}
+    </head>
+    <body class="is-home">
+        <!-- Header -->
+        {% partial "site/header" %}
+
+        <!-- Content -->
+        <main class="main">
+            <section class="hero section">
+                <div class="container hero__container">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-8 col-lg-7">
+                            <h1 class="hero__title mb-4">{{ this.page.title }}</h1>
+                            <div class="hero__description mb-4">
+                                {% page %}
+                            </div>
+                            <div class="hero__action d-flex align-items-center">
+                                <a href="#calc" class="btn btn-primary pl-4 pr-4 btn-lg text-uppercase rounded-pill">Пройти тест</a>
+                                <p class="hero__action-info mb-0 ml-3">Узнайте за 1 минуту, подходит ли вам процедура банкротства</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% component 'advantage2::hero' %}
+                </div>
+            </section>
+
+            <section class="start shadow-sm section">
+                <div class="container">
+                    {% component 'advantage3::number' %}
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="start__footer d-flex align-items-center bg-white shadow">
+                                <div class="start__footer-group">
+                                    <h3 class="start__footer-title text-uppercase">В ряде случаев банкротство противопоказано</h3>
+                                    <p class="start__footer-description mb-0">Вы можете лично задать нам любой вопрос через форму обратной связи.</p>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-lg text-uppercase shadow-sm start__btn" data-toggle="modal" data-target="#popup" >бесплатная консультация</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="calc" class="calc section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="calc__title">получите расчет стоимости под ваш случай, <span>Ответив на несколько вопросов</span></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            {% component 'quiz' %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% component 'contents' %}
+
+            <section id="about" class="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="about__title">О нас</h2>
+                            <div class="about__content mb-5">
+                                {% page %}
+                            </div>
+                        </div>
+                    </div>
+                    {% component 'services2::second' %}
+                </div>
+            </section>
+
+            <section class="claim section">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-md-12 col-lg-7 col-xl-7">
+                            <div class="claim__content">
+                                <h2 class="claim__title">
+                                    {{ this.theme.form_title|raw }}
+                                </h2>
+                                {{ this.theme.form_content|raw }}
+                                <div class="claim__action">
+                                    Тот, кто первым начинает банкротство — <span>выигрывает дело</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-5 col-xl-4 mt-4 mt-lg-0">
+                            {% component 'formwidget' %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {% component 'services' %}
+
+            {% component 'advantage' %}
+
+            <section id="contact" class="map d-flex align-items-center">
+                <div class="container-md container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-7 col-lg-6 col-xl-5">
+                            <div class="map__content bg-white text-center">
+                                <h2 class="map__title">Контакты</h2>
+                                <a href="tel:" class="map__phone d-inline-block">{{ this.theme.phone }}</a>
+                                <span class="map__open d-block">{{ this.theme.open }}</span>
+                                <p class="map__adress"><b>Адрес:</b> {{ this.theme.address }}</p>
+                                {% partial "site/messengers" %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="map__container">
+                    {{ this.theme.map|raw }}
+                </div>
+            </section>
+
+            <section id="news" class="news">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <h2 class="news__title text-center">Новости</h2>
+                        </div>
+                        {% for row in this.theme.news %}
+                        <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+                            <a href="{{ row.link }}" class="news__item d-block shadow rounded">
+                                <div class="news__preview">
+                                    <img src="{{ row.image|media|resize(480, 300, { quality: '70' }) }}" alt="{{ row.title }}" class="news__image" />
+                                </div>
+                                <h3 class="news__item-title">
+                                    {{ row.title }}
+                                </h3>
+                                <span class="news__date">{{ row.date }}</span>
+                                <p class="news__description">
+                                    {{ row.desc|raw }}
+                                </p>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+
+            {% component 'faq' %}
+
+        </main>
+
+        <!-- Footer -->
+        {% partial "site/footer" %}
+
+        <!-- Modal -->
+        <div
+            class="modal fade"
+            id="popup"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="popuplLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="popuplLabel">
+                            БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ
+                        </h5>
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        >
+                            <img src="{{ 'assets/images/cancel.svg'|theme }}" alt="" class="close__icon" />
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {% component 'formwidget2' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="{{ 'assets/dist/js/index.js'|theme }}"></script>
+        {% framework extras %}
+        {% scripts %}
+    </body>
+</html>

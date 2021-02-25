@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <form class="form col-12 col-md-8 col-lg-6 shadow p-4 rounded ajax-form-rewiews" data-request="onSaveFeedback" data-request-validate data-request-files data-request-flash>
+    <h4 class="text-center text-white">Оставить отзыв</h4>
+    <input type="hidden" name="_handler" value="onSaveFeedback">
+    {{ form_token() }}
+    {{ form_sessionKey() }}
+    <div class="input">
+      <label class="text-white small mb-1" for="name">Имя</label>
+      <input type="text" id="name" name="name" class="input-ajax ">
+      <span class="small text-white" data-validate-for="name"></span>
+    </div>
+
+    <div class="input">
+      <label class="text-white small mb-1" for="email">E-mail</label>
+      <input type="text" id="email" name="email" class="input-ajax ">
+      <span class="small text-white" data-validate-for="email"></span>
+    </div>
+    <div class="input">
+      <label class="text-white small mb-1" for="message">Текст отзыва</label>
+      <textarea name="message" id="message" class="input-ajax "></textarea>
+      <span class="small text-white" data-validate-for="message"></span>
+    </div>
+    <div class="text-center">
+      <div class="stars mr-auto ml-auto">
+          <input class="star star-5" value="5" id="star-5" type="radio" name="rating"/>
+          <label class="star star-5" for="star-5"></label>
+          <input class="star star-4" value="4" id="star-4" type="radio" name="rating"/>
+          <label class="star star-4" for="star-4"></label>
+          <input class="star star-3" value="3" id="star-3" type="radio" name="rating"/>
+          <label class="star star-3" for="star-3"></label>
+          <input class="star star-2" value="2" id="star-2" type="radio" name="rating"/>
+          <label class="star star-2" for="star-2"></label>
+          <input class="star star-1" value="1" id="star-1" type="radio" name="rating"/>
+          <label class="star star-1" for="star-1"></label>
+      </div>
+    </div>
+    <span class="text-white small d-block text-center" data-validate-for="rating"></span>
+
+    <div class="example-2">
+      <div class="form-group">
+        <input type="file" name="avatar"  accept="image/*" id="file" class="input-file">
+        <label for="file" class="btn btn-tertiary js-labelFile">
+          <i class="icon fa fa-check"></i>
+          <span class="js-fileName">Добавить фото</span>
+        </label>
+      </div>
+    </div>
+    <span data-validate-for="avatar"></span>
+
+    <button type="submit" class="send-ajax mt-4" data-attach-loading>Оставить отзыв</button>
+
+    {% flash %}
+    <div class="text-center mt-3 mb-3 alert alert-{{ type }}" data-interval="4">
+        {{ message }}
+    </div>
+    {% endflash %}
+
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,10 @@
+name: Projects
+form: $/acme/settings/models/project/fields.yaml
+modelClass: Acme\Settings\Models\Project
+defaultRedirect: acme/settings/projects
+create:
+    redirect: 'acme/settings/projects/update/:id'
+    redirectClose: acme/settings/projects
+update:
+    redirect: acme/settings/projects
+    redirectClose: acme/settings/projects

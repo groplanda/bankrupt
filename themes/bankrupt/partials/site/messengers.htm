@@ -1,0 +1,21 @@
+description = "Messenger"
+
+[viewBag]
+==
+<div class="messengers">
+  {% if this.theme.whatsapp %}
+  <a href="whatsapp://send?phone=+{{ this.theme.whatsapp }}" class="messengers__link messengers__link_whatsapp">
+    <i class="fab fa-whatsapp messengers__ico"></i>
+  </a>
+  {% endif %}
+  {% if this.theme.vk %}
+  <a href="{{ this.theme.vk }}" target="_blank" rel="noopener noreferrer" class="messengers__link messengers__link_vk">
+    <i class="fab fa-vk messengers__ico"></i>
+  </a>
+  {% endif %}
+  {% if this.theme.instagram %}
+  <a href="{{ this.theme.instagram }}" target="_blank" rel="noopener noreferrer" class="messengers__link messengers__link_instagram">
+    <i class="fab fa-instagram messengers__ico"></i>
+  </a>
+  {% endif %}
+</div>

@@ -1,0 +1,20 @@
+{% set advantage = __SELF__.advantages %}
+<div id="{{__SELF__.id}}" class="row hero__featured justify-content-center">
+    {% for row in advantage.advantages %}
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="hero__featured-item shadow-lg">
+            <img
+                src="{{ row.a_ico|media }}"
+                alt="{{ row.a_title|raw }}"
+                class="hero__featured-image"
+            />
+            <div class="hero__featured-title text-uppercase mb-2 text-white">
+                {{ row.a_title|raw }}
+            </div>
+            <p class="hero__featured-text text-white mb-0">
+                {{ row.a_descr|raw }}
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+</div>

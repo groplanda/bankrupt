@@ -1,0 +1,124 @@
+{% set quiz = __SELF__.quiz %}
+<div class="calc__wrapper shadow-lg">
+  <div class="calc__header d-flex align-items-center justify-content-between">
+      <div class="calc__header-title d-flex align-items-center">
+          <svg class="calc__header-ico" viewBox="0 0 74 74" xmlns="http://www.w3.org/2000/svg"><path d="m59.8 36a1 1 0 0 1 -1-1v-2.9a1 1 0 0 1 2 0v2.9a1 1 0 0 1 -1 1z"/><path d="m59.8 72h-45.6a1 1 0 0 1 -1-1v-58.03a1 1 0 0 1 1-1h10.36a1 1 0 0 1 0 2h-9.36v56.03h43.6v-18.03a1 1 0 0 1 2 0v19.03a1 1 0 0 1 -1 1z"/><path d="m59.8 45.97a1 1 0 0 1 -1-1v-2.97a1 1 0 0 1 2 0v2.97a1 1 0 0 1 -1 1z"/><path d="m59.8 26.1a1 1 0 0 1 -1-1v-11.13h-9.36a1 1 0 0 1 0-2h10.36a1 1 0 0 1 1 1v12.13a1 1 0 0 1 -1 1z"/><path d="m49.435 17.156h-24.87a1 1 0 0 1 -1-1v-6.281a1 1 0 0 1 1-1h5.225a7.228 7.228 0 0 1 7.21-6.875 7.229 7.229 0 0 1 7.21 6.875h5.225a1 1 0 0 1 1 1v6.281a1 1 0 0 1 -1 1zm-23.87-2h22.87v-4.281h-5.217a1 1 0 0 1 -1-1v-.657a5.227 5.227 0 0 0 -5.218-5.218 5.224 5.224 0 0 0 -5.218 5.218v.657a1 1 0 0 1 -1 1h-5.217z"/><circle cx="37" cy="8.375" r="1.625"/><path d="m37 10.5a2.125 2.125 0 1 1 2.125-2.125 2.127 2.127 0 0 1 -2.125 2.125zm0-3.25a1.125 1.125 0 1 0 1.125 1.125 1.127 1.127 0 0 0 -1.125-1.125z"/><path d="m52.781 28.5h-24.125a1 1 0 0 1 0-2h24.125a1 1 0 1 1 0 2z"/><path d="m52.781 39.219h-24.125a1 1 0 0 1 0-2h24.125a1 1 0 0 1 0 2z"/><path d="m52.781 49.938h-24.125a1 1 0 1 1 0-2h24.125a1 1 0 0 1 0 2z"/><path d="m52.781 60.656h-24.125a1 1 0 0 1 0-2h24.125a1 1 0 0 1 0 2z"/><path d="m23.219 28.5h-2a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2z"/><path d="m23.219 39.219h-2a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2z"/><path d="m23.219 49.938h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2z"/><path d="m23.219 60.656h-2a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2z"/></svg>
+          {{quiz.title|raw}}
+      </div>
+      <div class="calc__num">
+          <span data-calc-id="step">1</span>/{{ quiz.questions|length + 1 }}
+      </div>
+  </div>
+  <div class="calc__process">
+      <div class="calc__percent" data-calc-percent></div>
+  </div>
+  <form
+  id="{{ __SELF__.id }}"
+  data-request="{{ __SELF__ }}::onSend"
+  data-request-validate
+  data-request-flash
+  class="calc__body">
+      {% for row in quiz.questions %}
+      {% set index = loop.index %}
+      <div class="calc__step{{ index == 1 ? ' calc__step_active' : ''}}" data-calc-step>
+          <div class="calc__step-title">{{ row.question }}</div>
+          <div class="calc__step-questions">
+              {% for item in row.answers %}
+              <label class="calc__step-label">
+                  <input type="radio" name="step-{{ index }}" class="calc__step-radio" value="{{ item.answer }}" data-calc-input="input-{{ index }}">
+                  <span class="calc__step-text">{{ item.answer }}</span>
+              </label>
+              {% endfor %}
+          </div>
+      </div>
+      {% endfor %}
+      <div class="calc__step" data-calc-step>
+        <div class="calc__step-title">Введите ваши данные для получения расчета</div>
+        <div class="form-row">
+          <div class="col-12 col-md-6 mb-3">
+            <input type="text" name="user_name" class="form-control" placeholder="Ваше имя" />
+            <div class="invalid-feedback" data-validate-for="user_name"></div>
+          </div>
+          <div class="col-12 col-md-6 mb-3">
+            <input type="text" name="user_phone" class="form-control" placeholder="Ваш номер телефона" data-input="phone" />
+            <div class="invalid-feedback" data-validate-for="user_phone"></div>
+          </div>
+        </div>
+      </div>
+      <div class="calc__error-text d-inline-block mt-4 pt-2 pr-4 pb-2 pl-4 border border-danger text-danger" data-calc-error>
+        Укажите вариант ответа!
+      </div>
+      <div class="calc__controls d-flex w-100">
+          <button class="btn btn-primary text-uppercase calc__btn calc__btn_prev" disabled data-calc-button="prev" type="button">
+              <?xml version="1.0"?>
+                  <svg class="calc__arrow mr-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 64 64" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g transform="matrix(-1,-1.2246467991473532e-16,1.2246467991473532e-16,-1,64.00000381469727,64.00053596496582)"><path xmlns="http://www.w3.org/2000/svg" d="m37.379 12.552c-.799-.761-2.066-.731-2.827.069-.762.8-.73 2.066.069 2.828l15.342 14.551h-39.963c-1.104 0-2 .896-2 2s.896 2 2 2h39.899l-15.278 14.552c-.8.762-.831 2.028-.069 2.828.393.412.92.62 1.448.62.496 0 .992-.183 1.379-.552l17.449-16.62c.756-.755 1.172-1.759 1.172-2.828s-.416-2.073-1.207-2.862z"/></g>
+              </svg>
+              Назад
+          </button>
+          <button class="btn btn-primary text-uppercase calc__btn calc__btn_next" data-calc-button="next" type="button">
+              Далее
+              <?xml version="1.0"?>
+                  <svg class="calc__arrow ml-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1"x="0" y="0" viewBox="0 0 64 64" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path xmlns="http://www.w3.org/2000/svg" d="m37.379 12.552c-.799-.761-2.066-.731-2.827.069-.762.8-.73 2.066.069 2.828l15.342 14.551h-39.963c-1.104 0-2 .896-2 2s.896 2 2 2h39.899l-15.278 14.552c-.8.762-.831 2.028-.069 2.828.393.412.92.62 1.448.62.496 0 .992-.183 1.379-.552l17.449-16.62c.756-.755 1.172-1.759 1.172-2.828s-.416-2.073-1.207-2.862z"/></g>
+              </svg>
+          </button>
+          <button type="submit" class="btn btn-primary text-uppercase calc__submit pl-4 pr-4" data-calc-button="send">
+            Получить расчет
+            <?xml version="1.0" encoding="iso-8859-1"?>
+              <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+              <svg class="calc__submit-ico" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+              <g>
+                <g>
+                  <polygon points="119.988,365.064 119.988,492 396.949,122.719 		"/>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path d="M8.279,243.581c-10.502,5.251-11.149,20.025-1.157,26.191l103.449,63.668l376.6-331.862L488.356,0L8.279,243.581z"/>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path d="M509.239,22.136L224.05,403.264l173.071,106.509c8.793,5.44,20.641,0.461,22.603-10.005L512,19.719L509.239,22.136z"/>
+                </g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              </svg>
+          </button>
+      </div>
+      {% flash %}
+        <div class="text-center mt-3 mb-3 alert alert-{{ type }}" data-interval="4">
+            {{ message }}
+        </div>
+      {% endflash %}
+  </form>
+</div>

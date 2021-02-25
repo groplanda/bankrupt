@@ -1,0 +1,72 @@
+{% set answers = __SELF__.answers %}
+<section id="{{ __SELF__.id }}" class="faq">
+  <div class="container">
+    <h2 class="faq__title text-center">
+      <span>Ответы</span> на часто задаваемые вопросы
+    </h2>
+
+    <div class="accordion" id="faq">
+      {% for answer in answers %}
+      <div class="card">
+        <div class="card-header faq__header" id="heading-{{ loop.index }}">
+          <h2 class="mb-0">
+            <button class="faq__btn btn btn-link btn-block text-left{{ loop.index > 1 ? ' collapsed' : '' }}" type="button" data-toggle="collapse" data-target="#collapse-{{ loop.index }}" aria-expanded="true" aria-controls="collapse-{{ loop.index }}">
+              {{ answer.title }}
+            </button>
+            <div class="faq__ico">
+              <?xml version="1.0" encoding="iso-8859-1"?>
+              <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+              <svg class="faq__plus" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+              <g>
+                <g>
+                  <path d="M492,236H276V20c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20v216H20c-11.046,0-20,8.954-20,20s8.954,20,20,20h216
+                    v216c0,11.046,8.954,20,20,20s20-8.954,20-20V276h216c11.046,0,20-8.954,20-20C512,244.954,503.046,236,492,236z"/>
+                </g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              </svg>
+            </div>
+          </h2>
+        </div>
+
+        <div id="collapse-{{ loop.index }}" class="collapse {{ loop.index == 1 ? ' show' : '' }}" aria-labelledby="heading-{{ loop.index }}" data-parent="#faq">
+          <div class="card-body">
+            {{ answer.description|raw }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+

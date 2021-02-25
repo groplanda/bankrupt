@@ -1,0 +1,10 @@
+name: Questions
+form: $/acme/quiz/models/question/fields.yaml
+modelClass: Acme\quiz\Models\Question
+defaultRedirect: acme/quiz/questions
+create:
+    redirect: 'acme/quiz/questions/update/:id'
+    redirectClose: acme/quiz/questions
+update:
+    redirect: acme/quiz/questions
+    redirectClose: acme/quiz/questions

@@ -1,0 +1,21 @@
+fields:
+    title:
+        label: Название
+        span: full
+        type: text
+    description:
+        label: Описание
+        size: large
+        span: full
+        type: richeditor
+    photo:
+        label: Фото
+        mode: image
+        imageWidth: '120'
+        imageHeight: '120'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload

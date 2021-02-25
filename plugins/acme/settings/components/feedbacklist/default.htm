@@ -1,0 +1,35 @@
+{% set feedbacks = __SELF__.feedbacks %}
+<div id="testimonial" class="carousel slide testimonial section" data-ride="carousel">
+  <ol class="carousel-indicators">
+    {% for feedback in feedbacks %}
+    <li data-target="#testimonial" data-slide-to="{{ loop.index }}" class="testimonial__dot{{ loop.index == 1 ? ' active' : '' }}"></li>
+    {% endfor %}
+  </ol>
+  <div class="carousel-inner">
+    {% for feedback in feedbacks %}
+    {% set avatar = feedback.avatar %}
+    <div class="carousel-item{{ loop.index == 1 ? ' active' : '' }}">
+      <div class="testimonial__item d-flex p-5 bg-white rounded shadow">
+          <img src="{{ avatar.thumb(75, 75, {'mode': 'crop'}) }}" alt="Отзыв {{feedback.name}}" class="testimonial__avatar rounded-circle shadow" />
+          <div class="testimonial__group">
+              <div class="testimonial__header d-flex justify-content-between mb-3 pb-3 border-bottom">
+                  <div class="testimonial__name">{{feedback.name}}</div>
+                  <span class="testimonial__date">{{ feedback.time }}</span>
+              </div>
+              <p class="testimonial__text">
+                {{ feedback.rewiew|raw }}
+              </p>
+          </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <a class="carousel-control-prev" href="#testimonial" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#testimonial" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

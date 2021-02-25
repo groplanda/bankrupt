@@ -1,0 +1,10 @@
+fields:
+    title:
+        label: Вопрос
+        span: full
+        type: text
+    description:
+        label: Ответ
+        size: huge
+        span: full
+        type: richeditor

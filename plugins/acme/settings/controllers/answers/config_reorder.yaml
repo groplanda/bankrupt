@@ -1,0 +1,5 @@
+title: Answers
+nameFrom: title
+modelClass: Acme\Settings\Models\Answer
+toolbar:
+    buttons: reorder_toolbar

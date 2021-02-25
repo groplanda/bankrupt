@@ -1,0 +1,29 @@
+description = "Social"
+
+[viewBag]
+==
+{% if this.theme.vk %}
+<a href="{{ this.theme.vk }}" target="_blank" rel="noopener noreferrer" class="social-list__link">
+  <i class="fab fa-vk social-list__ico"></i>
+</a>
+{% endif %}
+{% if this.theme.twitter %}
+<a href="{{ this.theme.twitter }}" target="_blank" rel="noopener noreferrer" class="social-list__link">
+  <i class="fab fa-twitter social-list__ico"></i>
+</a>
+{% endif %}
+{% if this.theme.instagram %}
+<a href="{{ this.theme.instagram }}" target="_blank" rel="noopener noreferrer" class="social-list__link">
+  <i class="fab fa-instagram social-list__ico"></i>
+</a>
+{% endif %}
+{% if this.theme.whatsapp %}
+<a href="whatsapp://send?phone=+{{ this.theme.whatsapp }}" class="social-list__link">
+  <i class="fab fa-whatsapp social-list__ico"></i>
+</a>
+{% endif %}
+{% if this.theme.viber %}
+<a href="viber://add?number={{ this.theme.viber }}" class="social-list__link">
+  <i class="fab fa-viber social-list__ico"></i>
+</a>
+{% endif %}

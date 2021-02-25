@@ -1,0 +1,4 @@
+title: Questions
+modelClass: Acme\quiz\Models\Question
+toolbar:
+    buttons: reorder_toolbar

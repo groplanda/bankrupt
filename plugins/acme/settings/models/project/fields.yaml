@@ -1,0 +1,35 @@
+fields:
+    title:
+        label: Заголовок
+        span: auto
+        type: text
+    is_active:
+        label: 'Показать?'
+        span: auto
+        type: switch
+tabs:
+    fields:
+        square:
+            label: Площадь
+            span: auto
+            type: text
+            tab: Описание
+        type:
+            label: 'Тип работы'
+            span: auto
+            type: text
+            tab: Описание
+        description:
+            label: Описание
+            size: small
+            span: full
+            type: textarea
+            tab: Описание
+        photo:
+            label: Фото
+            mode: image
+            imageWidth: '120'
+            imageHeight: '120'
+            span: auto
+            type: mediafinder
+            tab: Фото

@@ -1,0 +1,11 @@
+plugin:
+    name: 'acme.quiz::lang.plugin.name'
+    description: 'acme.quiz::lang.plugin.description'
+    author: Acme
+    icon: oc-icon-question
+    homepage: ''
+navigation:
+    quiz-item:
+        label: Опросник
+        url: acme/quiz/questions
+        icon: icon-question

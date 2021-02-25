@@ -1,0 +1,40 @@
+fields:
+    title:
+        label: Заголовок
+        span: left
+        type: text
+    image:
+        label: 'Фоновое изображение'
+        mode: image
+        imageWidth: '200'
+        imageHeight: '200'
+        span: auto
+        type: mediafinder
+    description:
+        label: Описание
+        size: small
+        span: full
+        type: textarea
+    advantages:
+        label: Преимущество
+        prompt: Добавить
+        span: full
+        type: repeater
+        form:
+            fields:
+                a_ico:
+                    label: Иконка
+                    mode: image
+                    imageWidth: '75'
+                    imageHeight: '75'
+                    span: auto
+                    type: mediafinder
+                a_title:
+                    label: Заголовок
+                    span: auto
+                    type: text
+                a_descr:
+                    label: Описание
+                    size: small
+                    span: full
+                    type: textarea

@@ -1,0 +1,21 @@
+{% set type = __SELF__.type %}
+{% set content = __SELF__.content %}
+{% set image = content.image|media|resize(255, 522, { mode: 'crop', quality: '100', extension: 'png' }) %}
+<section id="consult" class="promo section">
+    <div class="container">
+        <div class="row justify-content-center justify-content-md-between align-items-center">
+            <div class="col-8 col-sm-5 order-1 order-md-0 col-md-4 col-lg-3">
+                <div class="promo__image mt-4 mt-md-0">
+                    <img src="{{image}}" alt="" class="promo__thumb" />
+                </div>
+            </div>
+            <div class="col-md-8 col-lg-7  order-0 order-md-1">
+                <div class="promo__content">
+                    <h2 class="promo__title">{{ content.title|raw }}</h2>
+                    {{ content.content|raw }}
+                    <button type="button" class="promo__btn btn btn-light btn-lg text-uppercase pl-4 pr-4 mt-2 mt-md-4" data-toggle="modal" data-target="#popup" >получить консультацию</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

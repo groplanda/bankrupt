@@ -1,0 +1,10 @@
+name: Shops
+form: $/acme/settings/models/shop/fields.yaml
+modelClass: Acme\Settings\Models\Shop
+defaultRedirect: acme/settings/shops
+create:
+    redirect: 'acme/settings/shops/update/:id'
+    redirectClose: acme/settings/shops
+update:
+    redirect: acme/settings/shops
+    redirectClose: acme/settings/shops

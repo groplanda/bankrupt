@@ -1,0 +1,6 @@
+name: 'Мой банкрот'
+description: ''
+author: bardinteam
+homepage: 'https://bardinteam.ru'
+code: ''
+form: config/fields.yaml

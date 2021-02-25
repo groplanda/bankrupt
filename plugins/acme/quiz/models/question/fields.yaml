@@ -1,0 +1,27 @@
+fields:
+    title:
+        label: Название
+        span: full
+        type: text
+    questions:
+        label: Вопросы
+        prompt: Добавить
+        span: full
+        type: repeater
+        form:
+            fields:
+                question:
+                    label: Вопрос
+                    span: full
+                    type: text
+                answers:
+                    label: Ответы
+                    prompt: Добавить
+                    span: auto
+                    type: repeater
+                    form:
+                        fields:
+                            answer:
+                                label: 'Вариант ответа'
+                                span: auto
+                                type: text

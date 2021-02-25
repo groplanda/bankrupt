@@ -1,0 +1,61 @@
+description = "Header"
+
+[viewBag]
+
+[staticMenu]
+code = "header-menu"
+==
+<header class="header bg-white">
+  <div class="header__top">
+    <div class="container">
+      <div class="row align-items-center pt-2 pb-2 border-bottom">
+
+        <div class="col-lg-3 d-none d-lg-block">
+          <div class="d-flex align-items-center">
+            <img src="{{ 'assets/images/logo.png'|theme }}" class="header__logo" alt="мой банкрот" />
+            <p class="header__description pl-2">
+              ВАШ НАДЕЖНЫЙ ПОМОЩНИК В СФЕРЕ ФИНАНСОВЫХ ПРОБЛЕМ
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-9 d-flex align-items-center flex-column flex-sm-row justify-content-around justify-content-md-between header__contact">
+
+          <div class="header__count mb-2 mb-md-0">
+            <p class="header__count-numbers mb-1">976 334 784 ₽</p>
+            <span class="header__count-text">Законно списано за все время</span>
+          </div>
+
+          <div class="header__info mb-2 mb-md-0">
+            <a href="tel:{{ this.theme.phone }}" class="header__phone mb-1">{{ this.theme.phone }}</a>
+            <span class="header__open">{{ this.theme.open }}</span>
+          </div>
+
+          {% partial "site/messengers" %}
+
+          <button type="button" data-toggle="modal" data-target="#popup" class="btn btn-primary pl-3 pr-3 mt-2 mt-sm-0 text-uppercase">Заказать звонок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header__bottom shadow" data-header="fixed">
+    <div class="container">
+      <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white w-100">
+          <div class="navbar-brand d-block d-lg-none">
+            <img src="{{ 'assets/images/logo.png'|theme }}" class="header__logo" alt="мой банкрот" />
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% partial "site/menu-item" items=menuItems %}
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+</header>

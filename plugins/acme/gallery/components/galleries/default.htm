@@ -1,0 +1,33 @@
+{% set gallery = __SELF__.gallery %}
+<div class="row">
+  <div class="col-12">
+      <div
+          class="gallery__header text-center text-white mb-5"
+      >
+          <h2 class="title gallery__title">{{ gallery.title|raw }}</h2>
+          <p class="lead gallery__subtitle">
+            {{ gallery.description }}
+          </p>
+      </div>
+  </div>
+</div>
+<div class="gallery__row row justify-content-center">
+  {% for image in gallery.gallery %}
+  {% set full = image.thumb(1000, false) %}
+  {% set poster = image.thumb(250, 250, {'mode': 'crop'}) %}
+  <div class="col-6 col-sm-6 col-md-3">
+      <a
+          href="{{ full }}"
+          data-lightbox="gallery"
+          data-title="{{ image.title }}"
+          class="d-flex gallery__item shadow"
+      >
+          <img
+              src="{{ poster }}"
+              alt="{{ image.title }}"
+              class="gallery__thumb"
+          />
+      </a>
+  </div>
+  {% endfor %}
+</div>

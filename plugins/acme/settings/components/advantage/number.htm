@@ -1,0 +1,19 @@
+{% set advantage = __SELF__.advantages %}
+<div id="{{__SELF__.id}}" class="row justify-content-center">
+  <div class="col-12">
+      <h2 class="start__title text-white">Для чего мне процедура банкротства?</h2>
+  </div>
+  {% for row in advantage.advantages %}
+  <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+      <div class="start__item">
+          <div class="start__item-header">
+              <span class="start__item-num text-warning">0{{ loop.index }}</span>
+          </div>
+          <div class="start__item-title text-white">{{ row.a_title|raw }}</div>
+          <p class="start__item-description text-white">
+            {{ row.a_descr|raw }}
+          </p>
+      </div>
+  </div>
+  {% endfor %}
+</div>
