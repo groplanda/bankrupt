@@ -31,3 +31,7 @@ navigation:
                 label: 'Текстовые блоки'
                 url: acme/settings/content
                 icon: icon-file-image-o
+            team-item:
+                label: Команда
+                url: acme/settings/teams
+                icon: icon-users

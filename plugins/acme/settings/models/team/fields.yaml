@@ -3,10 +3,6 @@ fields:
         label: Имя
         span: auto
         type: text
-    position:
-        label: Должность
-        span: auto
-        type: text
     photo:
         label: Фото
         mode: image
@@ -14,6 +10,11 @@ fields:
         imageHeight: '150'
         span: auto
         type: mediafinder
+    position:
+        label: Описание
+        size: large
+        span: full
+        type: textarea
     social:
         label: Ссылки
         prompt: 'Add new item'
