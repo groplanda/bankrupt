@@ -8,6 +8,7 @@ description = "Menu items"
   <li class="nav-item{{ item.isActive ? ' active' : '' }}{{ item.items ? ' dropdown' : '' }}">
     <a class="nav-link {{ item.items ? 'dropdown-toggle' : '' }}"
       href="{{ item.url }}"
+      data-scroll
       {% if item.items %}
       id="{{item.code}}"
       role="button"

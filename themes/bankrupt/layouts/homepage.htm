@@ -9,11 +9,6 @@ formType = "first"
 [advantage]
 advantageName = 1
 
-[feedbacklist]
-maxFeeds = 0
-feedType = "list"
-sortOrder = "desc"
-
 [services]
 serviceName = 1
 
@@ -34,6 +29,11 @@ contentId = 1
 
 [services services2]
 serviceName = 2
+
+[feedbacklist]
+maxFeeds = 0
+feedType = "list"
+sortOrder = "desc"
 ==
 <!DOCTYPE html>
 <html>
@@ -136,6 +136,8 @@ serviceName = 2
             {% component 'services' %}
 
             {% component 'advantage' %}
+            
+            {% component 'feedbacklist' %}
 
             <section id="contact" class="map d-flex align-items-center">
                 <div class="container-md container-fluid">

@@ -37,7 +37,7 @@ window.onload = () => {
 
   const $page = $('html, body');
 
-  $('a[href*="#"]').click(function() {
+  $('[data-scroll]').click(function() {
     $page.animate({
         scrollTop: $($.attr(this, 'href')).offset().top
     }, 400);
