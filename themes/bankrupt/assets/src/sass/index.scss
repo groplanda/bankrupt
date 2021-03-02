@@ -1407,7 +1407,24 @@ h1, h2, h3, h4, h5, h6 {
     top: 50%;
     left: -25%;
     transform: translateY(-50%);
-    @media (max-width: 1199px) {
+
+    @media (max-width: 1855px) {
+      left: -30%;
+    }
+
+    @media (max-width: 1755px) {
+      left: -40%;
+    }
+
+    @media (max-width: 1555px) {
+      left: -50%;
+    }
+
+    @media (max-width: 1440px) {
+      left: -55%;
+    }
+
+    @media (max-width: 1325px) {
       left: -60%;
     }
 
