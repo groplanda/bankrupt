@@ -410,15 +410,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 150px 0 0;
     position: relative;
     z-index: 3;
-
     @media (max-width: 991px) {
       margin-top: 70px;
     }
-
     @media (max-width: 767px) {
       margin-top: 30px;
     }
-
     .col-12 {
       @media (max-width: 991px) {
         margin-bottom: 25px;
@@ -431,20 +428,48 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   &__featured-item {
-    position: relative;
+    display: flex;
+    align-items: flex-start;
     background: $blue;
-    padding: 25px 25px 25px 134px;
+    padding: 25px 15px;
     border-radius: 25px;
-    overflow: hidden;
+    position: relative;
 
     @media (max-width: 1199px) {
-      padding: 15px 10px 15px 110px;
+      padding: 15px 10px 15px 10px;
     }
 
     @media (max-width: 575px) {
       width: 100%;
-      max-width: 330px;
+      max-width: 380px;
       margin: 0 auto;
+    }
+  }
+
+
+  &__featured-image {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+
+    @media (max-width: 1199px) {
+      width: 80px;
+      height: 80px;
+    }
+    @media (max-width: 349px) {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  &__featured-group {
+    width: 100%;
+    max-width: calc(100% - 110px);
+    @media (max-width: 1199px) {
+      max-width: calc(100% - 90px);
+    }
+    @media (max-width: 349px) {
+      max-width: calc(100% - 70px);
     }
   }
 
@@ -455,23 +480,19 @@ h1, h2, h3, h4, h5, h6 {
     @media (max-width: 1199px) {
       font-size: 11px;
     }
-  }
-
-  &__featured-text {
-    font-size: 17px;
-    @media (max-width: 1199px) {
-      font-size: 14px;
+    @media (max-width: 575px) {
+      max-width: 225px;
     }
   }
 
-  &__featured-image {
-    max-width: 134px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-
+  &__featured-text {
+    font-size: 16px;
+    line-height: 21px;
     @media (max-width: 1199px) {
-      max-width: 100px;
+      font-size: 12px;
+    }
+    @media (max-width: 991px) {
+      font-size: 13px;
     }
   }
 }
@@ -956,7 +977,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 40px;
 
     @media (max-width: 1199px) {
-      font-size: 22px;
+      font-size: 21px;
       margin-bottom: 30px;
     }
 
@@ -1030,6 +1051,10 @@ h1, h2, h3, h4, h5, h6 {
 .about {
   padding: 50px 0;
 
+  @media (max-width: 767px) {
+    padding: 50px 0 0;
+  }
+
   $root: &;
 
   &__title {
@@ -1053,17 +1078,38 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   &__featured-item {
-    position: relative;
-    padding: 23px 23px 23px 132px;
+    display: flex;
+    align-items: flex-start;
+    background: $blue;
+    padding: 25px 15px;
     border-radius: 25px;
-    border: 2px solid $blue;
+    position: relative;
+
     @media (max-width: 1199px) {
-      padding: 15px 10px 15px 110px;
+      padding: 15px 10px 15px 10px;
     }
+
     @media (max-width: 575px) {
-      width: 100%;
-      max-width: 330px;
       margin: 0 auto;
+    }
+  }
+
+  &__featured-image {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+
+    @media (max-width: 991px) {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  &__featured-group {
+    width: 100%;
+    max-width: calc(100% - 110px);
+    @media (max-width: 991px) {
+      max-width: calc(100% - 90px);
     }
   }
 
@@ -1072,37 +1118,23 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 19px;
     @media (max-width: 1199px) {
-      font-size: 12px;
+
     }
   }
 
   &__featured-text {
-    font-size: 17px;
-    min-height: 68px;
+    font-size: 15px;
+    line-height: 21px;
+    min-height: 147px;
+
     @media (max-width: 1199px) {
       font-size: 14px;
     }
-  }
-
-  &__featured-image {
-    max-width: 134px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-
-    @media (max-width: 1199px) {
-      max-width: 100px;
+    @media (max-width: 767px) {
+      min-height: auto;
     }
-  }
-
-  .col-12:nth-child(odd) {
-    #{$root} {
-      &__featured-item {
-        background: $blue;
-      }
-      &__featured-title, &__featured-text {
-        color: #FFF;
-      }
+    p {
+      margin-bottom: 0;
     }
   }
 
@@ -1300,21 +1332,39 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   &__featured-item {
-    position: relative;
-    padding: 25px 25px 25px 80px;
+    display: flex;
+    align-items: center;
+    padding: 25px 15px;
     border-radius: 25px;
+    position: relative;
     margin-bottom: 30px;
+
     @media (max-width: 1199px) {
-      padding: 15px 5px 15px 70px;
-      margin-bottom: 40px;
+      padding: 20px 10px;
     }
-    @media (max-width: 991px) {
-      padding: 25px 25px 25px 80px;
-    }
+
     @media (max-width: 575px) {
       width: 100%;
-      max-width: 330px;
-      margin: 0 auto 40px;
+      max-width: 365px;
+      margin: 0 auto 30px;
+    }
+  }
+
+  &__featured-image {
+    width: 75px;
+    height: 75px;
+    margin-right: 10px;
+    @media (max-width: 1199px) {
+      width: 65px;
+      height: 65px;
+    }
+  }
+
+  &__featured-group {
+    width: 100%;
+    max-width: calc(100% - 85px);
+    @media (max-width: 1199px) {
+      max-width: calc(100% - 75px);
     }
   }
 
@@ -1322,8 +1372,9 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 12px;
     font-weight: 700;
     line-height: 19px;
+
     @media (max-width: 1199px) {
-      font-size: 11px;
+      font-size: 10px;
     }
 
     @media (max-width: 991px) {
@@ -1334,20 +1385,18 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   &__featured-text {
-    font-size: 17px;
+    font-size: 16px;
+    line-height: 21px;
+
     @media (max-width: 1199px) {
       font-size: 14px;
     }
   }
 
-  &__featured-image {
-    max-width: 134px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-
+  &__featured-text {
+    font-size: 17px;
     @media (max-width: 1199px) {
-      max-width: 100px;
+      font-size: 14px;
     }
   }
 
