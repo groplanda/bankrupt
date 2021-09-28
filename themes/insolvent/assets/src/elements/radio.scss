@@ -1,0 +1,82 @@
+.radio {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 50px;
+  cursor: pointer;
+
+  @media(max-width: 767px) {
+    padding-left: 45px;
+  }
+
+  $root: &;
+
+  &__input {
+    opacity: 0;
+    z-index: -1;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+
+    &:checked ~ {
+      #{$root} {
+        &__disk {
+          border-color: $blueColor;
+          &::after {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  &__disk {
+    position: absolute;
+    left: 20px;
+    top: calc(50% - 10px);
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $secondColor;
+    transition: all .2s ease;
+
+    @media(max-width: 767px) {
+      width: 16px;
+      height: 16px;
+      border-radius: 8px;
+    }
+
+    &::after {
+      content: "";
+      width: 14px;
+      height: 14px;
+      border-radius: 7px;
+      background: $blueColor;
+      position: absolute;
+      display: none;
+
+      @media(max-width: 767px) {
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  &__text {
+    color: $secondColor;
+    font-size: 16px;
+    font-weight: 400;
+
+    @media(max-width: 991px) {
+      font-size: 14px;
+    }
+
+    @media(max-width: 767px) {
+      font-size: 13px;
+    }
+  }
+}

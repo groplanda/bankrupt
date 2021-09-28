@@ -3,8 +3,8 @@ fields:
         label: Заголовок
         span: auto
         type: text
-    link:
-        label: Ссылка
+    label:
+        label: Лейбл
         span: auto
         type: text
     content:

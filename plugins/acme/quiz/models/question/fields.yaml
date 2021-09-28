@@ -14,10 +14,15 @@ fields:
                     label: Вопрос
                     span: full
                     type: text
+                question_descr:
+                    label: 'Вопрос описание'
+                    size: ''
+                    span: full
+                    type: textarea
                 answers:
                     label: Ответы
                     prompt: Добавить
-                    span: auto
+                    span: full
                     type: repeater
                     form:
                         fields:

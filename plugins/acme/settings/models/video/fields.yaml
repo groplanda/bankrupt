@@ -1,0 +1,27 @@
+fields:
+    title:
+        label: Заголовок
+        span: auto
+        type: text
+    is_show:
+        label: 'Включить?'
+        span: auto
+        type: switch
+    url:
+        label: 'Ссылка на видео'
+        span: full
+        placeholder: 'https://www.youtube.com/embed/754pSl_wm1E?'
+        type: text
+        comment: 'только вставка (embed)'
+    descr:
+        label: Описание
+        size: large
+        span: full
+        type: textarea
+    preview:
+        label: 'Превью видео'
+        mode: image
+        imageWidth: '120'
+        imageHeight: '120'
+        span: auto
+        type: mediafinder

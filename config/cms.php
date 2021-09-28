@@ -467,4 +467,18 @@ return [
 
     'enableBackendServiceWorkers' => false,
 
+    'fileDefinitions' => [
+      'imageExtensions' => [
+          // your new custom extensions
+          'svg',
+          // defaults
+          'jpg',
+          'jpeg',
+          'bmp',
+          'png',
+          'webp',
+          'gif'
+      ]
+    ]
+
 ];

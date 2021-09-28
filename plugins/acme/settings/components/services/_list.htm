@@ -1,0 +1,31 @@
+{% set service = __SELF__.service %}
+
+<div class="popup__title popup__title_lg">{{service.title|raw}}</div>
+<div class="popup__container">
+  <div class="special">
+    <div class="special__wrap">
+      {% for item in service.services %}
+
+      {% if loop.index == 1 or loop.index == 5 %}
+      <div class="special__col">
+      {% endif %}
+
+        <div class="special__item">
+          <div class="special__item-image">
+            <div class="special__item-bg" style="background-image: url('{{ item.service_image|media }}')"></div>
+          </div>
+          <div class="special__item-content">
+            <div class="special__item-title">{{ item.service_title|raw }}</div>
+            <div class="special__item-descr">{{ item.service_desc|raw }}</div>
+          </div>
+        </div>
+
+      {% if loop.index == 4 or loop.last %}
+      </div>
+      {% endif %}
+
+      {% endfor %}
+    </div>
+    <button type="button" class="btn special__btn" data-js-action="open-modal" data-modal="callback">Оставьте заявку на получение льготы</button>
+  </div>
+</div>

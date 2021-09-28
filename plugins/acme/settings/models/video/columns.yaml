@@ -1,0 +1,14 @@
+columns:
+    title:
+        label: Заголовок
+        type: text
+        searchable: true
+        sortable: true
+    is_show:
+        label: 'Опубликовано?'
+        type: switch
+        sortable: true
+    sort_order:
+        label: 'Порядок сортировки'
+        type: number
+        sortable: true

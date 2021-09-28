@@ -1,0 +1,78 @@
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  opacity: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  padding-top: 25px;
+  transition: all .3s ease;
+  pointer-events: none;
+  background: #FFF;
+
+  &_active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__header {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__title {
+    max-width: 180px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  &__close {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+  }
+
+  &__wrap {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  &__menu {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__menu-link {
+    width: 100%;
+    padding: 10px 0;
+    display: block;
+    font-size: 14px;
+    color: $blueColor;
+  }
+
+  &__content-item {
+    margin-bottom: 25px;
+  }
+
+  &__content-city {
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  &__content-descr {
+    color: $secondColor;
+    font-size: 14px;
+  }
+
+  &__content-phone {
+    color: $blueColor;
+    font-size: 22px;
+    font-weight: 700;
+  }
+}

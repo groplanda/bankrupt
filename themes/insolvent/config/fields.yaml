@@ -1,0 +1,118 @@
+tabs:
+  defaultTab: Контакты
+  lazy:
+      - Контакты
+      - Общие
+      - Главная страница
+      - Этапы
+  paneCssClass:
+      0: first-tab
+      1: second-tab
+      2: third-tab
+      3: four-tab
+  icons:
+      Контакты: icon-phone
+      Общие: icon-cogs
+      Главная страница: icon-home
+      Этапы: icon-paw
+  fields:
+      phone:
+          type: text
+          label: Телефон
+          span: storm
+          cssClass: col-md-4
+          tab: Контакты
+          placeholder: '+79147580525'
+      t_email:
+          type: email
+          label: E-mail
+          span: storm
+          cssClass: col-md-4
+          tab: Контакты
+          placeholder: 'example@mail.ru'
+      open:
+          type: text
+          label: График работы
+          span: storm
+          cssClass: col-md-4
+          tab: Контакты
+          placeholder: 'Ежедневно с 9:00 до 18:00'
+      address:
+          type: text
+          label: Адрес
+          span: storm
+          cssClass: col-md-4
+          tab: Контакты
+          placeholder: 'г. Москва'
+      whatsapp:
+          type: text
+          label: WhatsApp
+          span: storm
+          cssClass: col-md-4
+          tab: Контакты
+          placeholder: '79147580525'
+      viber:
+          type: text
+          label: Viber
+          span: storm
+          cssClass: col-md-4
+          tab: Контакты
+          placeholder: '79147580525'
+      vk:
+          type: text
+          label: Вконтакте
+          span: storm
+          cssClass: col-md-4
+          tab: Контакты
+          placeholder: https://vk.com
+      instagram:
+        type: text
+        label: Instagram
+        span: storm
+        cssClass: col-md-4
+        tab: Контакты
+        placeholder: https://www.instagram.com
+      twitter:
+        type: text
+        label: Twitter
+        span: storm
+        cssClass: col-md-4
+        tab: Контакты
+        placeholder: https://www.twitter.com
+      map:
+        type: textarea
+        label: Код карты
+        span: storm
+        size: large
+        cssClass: col-md-12
+        tab: Контакты
+        placeholder:
+      site_name:
+        type: text
+        label: Название сайта
+        default: OctoberCms
+        span: full
+        tab: Общие
+      site_heading:
+        type: text
+        label: Заголовок сайта h1
+        default: OctoberCms
+        placeholder: Банкротство
+        span: full
+        tab: Общие
+      steps:
+        type: repeater
+        prompt: Добавить этап
+        titleFrom: Этапы
+        form:
+          fields:
+            title:
+              label: Заголовок
+              type: text
+              span: full
+            desc:
+              label: Описание
+              type: textarea
+              size: large
+              span: full
+        tab: Этапы

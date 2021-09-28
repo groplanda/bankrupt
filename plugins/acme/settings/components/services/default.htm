@@ -1,29 +1,16 @@
 {% set service = __SELF__.service %}
-<section id="work" class="step section">
-    <div class="container">
-        <div class="row">
-           <div class="col-12">
-               <h2 class="step__title">
-                {{service.title|raw}}
-               </h2>
-           </div>
-        </div>
-        <div class="row step__featured justify-content-center">
-            {% for item in service.services %}
-            <div class="col-12 col-sm-9 col-md-6 col-lg-4">
-                <div class="step__featured-item shadow-lg">
-                    <img
-                        src="{{ item.service_image|media|resize(182, 131, { quality: '90' }) }}"
-                        alt="{{ item.service_title|raw }}"
-                        class="step__featured-image"
-                    />
-                    <div class="step__featured-group">
-                        <div class="step__featured-title text-uppercase">{{ item.service_title|raw }}</div>
-                        <p class="step__featured-text mb-0">{{ item.service_desc|raw }}</p>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+
+<section id="services" class="section services">
+  <h2 class="services__title">{{service.title|raw}}</h2>
+  <div class="services__wrap wrap">
+    {% for item in service.services %}
+    <div class="services__item">
+      <img src="{{ item.service_image|media }}" alt="{{ item.service_title|raw }}"" class="services__item-ico">
+      <div class="services__item-title">{{ item.service_title|raw }}"</div>
+      <p class="services__item-descr">{{ item.service_desc|raw }}</p>
     </div>
+    {% endfor %}
+  </div>
+  <button type="button" class="btn services__btn" data-js-action="open-modal" data-modal="callback">Узнайте все о банкротстве в вашем случае</button>
 </section>
+

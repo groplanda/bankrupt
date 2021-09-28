@@ -1,61 +1,18 @@
 {% set advantage = __SELF__.advantages %}
-<section id="{{__SELF__.id}}" class="advantages section">
-  <img src="{{ advantage.image|media|resize(1298, 812, { quality: '70' }) }}" alt="" class="advantages__image">
-  <div class="container">
-      <div class="row justify-content-end">
-          <div class="col-md-7">
-              <h2 class="advantages__title">{{ advantage.title|raw }}</h2>
-              <div class="advantages__list">
-                {% for row in advantage.advantages %}
-                  <div class="advantages__item">
-                    <?xml version="1.0" encoding="iso-8859-1"?>
-                      <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                      <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-                      <svg class="advantages__ico" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                       viewBox="0 0 229.153 229.153" style="enable-background:new 0 0 229.153 229.153;"
-                        xml:space="preserve">
-                        <g>
-                          <path d="M92.356,223.549c7.41,7.5,23.914,5.014,25.691-6.779c11.056-73.217,66.378-134.985,108.243-193.189
-                            C237.898,7.452,211.207-7.87,199.75,8.067C161.493,61.249,113.274,117.21,94.41,181.744
-                            c-21.557-22.031-43.201-43.853-67.379-63.212c-15.312-12.265-37.215,9.343-21.738,21.737
-                            C36.794,165.501,64.017,194.924,92.356,223.549z"/>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    {{ row.a_title|raw }}
-                  </div>
-                {% endfor %}
-              </div>
-          </div>
+
+<section id="{{__SELF__.id}}" class="section advantages">
+  <div class="wrap advantages__wrap">
+    <h3 class="advantages__title">{{ advantage.title|raw }}</h3>
+    <div class="advantages__row">
+      {% for row in advantage.advantages %}
+      <div class="advantages__item">
+        <img src="{{ row.a_ico|media }}" alt="{{ row.a_title }}" class="advantages__item-img" />
+        <div class="advantages__item-title">{{ row.a_title }}</div>
+        <p class="advantages__item-descr">
+          {{ row.a_descr|raw }}
+        </p>
       </div>
+      {% endfor %}
+    </div>
   </div>
 </section>

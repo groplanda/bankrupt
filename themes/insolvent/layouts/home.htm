@@ -1,0 +1,269 @@
+description = "Homepage"
+
+[quiz]
+quizName = 1
+
+[faq]
+
+[services]
+serviceName = 2
+servicesType = "base"
+
+[formwidget]
+formType = "third"
+
+[formwidget formwidget2]
+formType = "second"
+
+[formwidget formwidget3]
+formType = "first"
+
+[services services2]
+serviceName = 1
+servicesType = "list"
+
+[videos]
+
+[advantage]
+advantageName = 4
+
+[services services3]
+serviceName = 1
+servicesType = "special"
+==
+<!DOCTYPE html>
+<html lang="ru">
+    {% partial "meta" %}
+    <body>
+        <!-- Header -->
+        {% partial "header" %}
+        {% partial "mobile-nav" %}
+
+        <!-- Content -->
+        <main class="main">
+          {% partial "intro" %}
+
+          {% component 'services' %}
+
+          {% component 'quiz' %}
+
+          <section class="section person">
+            <div class="person__wrap wrap">
+              <div class="person__figure">
+                <div class="person__figure-circle">
+                  <picture>
+                    <source class="person__figure-img" srcset="{{ 'man.png'|media }}" />
+                    <img class="person__figure-img" src="{{ 'man.png'|media }}" alt="" title="" loading="lazy" />
+                  </picture>
+                </div>
+              </div>
+              <div class="person__container">
+                <div class="person__label">Важное условие</div>
+                <div class="person__title">Мы берёмся только за дела, в успехе которых уверены на 100%, поэтому даём уникальные письменные гарантии на результат</div>
+                <div class="person__name">Ирина Олеговна Склярова</div>
+                <div class="person__position">управляющий партнер компании «Мой Банкрот»</div>
+                <button type="button" class="btn person__btn" data-js-action="open-modal" data-modal="callback">
+                  Проконсультироваться по телефону с Скляровой И. О.
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {% component 'videos' %}
+
+          <section class="section person">
+            <div class="person__wrap wrap">
+              <div class="person__figure">
+                <div class="person__figure-circle">
+                  <picture>
+                    <source class="person__figure-img" srcset="https://fpa.ru/wp-content/themes/fpalaw/assets/img/services/humans/ilya-viktorovich.png" />
+                    <img class="person__figure-img" src="https://fpa.ru/wp-content/themes/fpalaw/assets/img/services/humans/ilya-viktorovich.png" alt="" title="" loading="lazy" />
+                  </picture>
+                </div>
+              </div>
+              <div class="person__container">
+                <div class="person__label">О сотрудничестве с нами</div>
+                <div class="person__title">Для вас работает одна из самых крупных и опытных в России компаний по банкротству</div>
+                <p class="person__descr">
+                  «Наш единственный профиль работы — процедуры личного банкротства, с помощью которых мы помогаем людям преодолевать кризисные моменты в жизни. В Российской федерации процедура банкротства физических лиц имеют репутацию дорогостоящих и неизведанных процедур. Мы надеемся своей работой повлиять на эту ситуацию и предоставляем всем клиентам простой и понятный сервис по умеренной стоимости, без недоразумений, скрытых условий и связанных с ними удорожаний
+                </p>
+                <p class="person__descr">
+                  У нас максимально простые и понятные договоры с конкретными гарантийными обязательствами. Мы фиксируем стоимость услуг и конкретизируем результат: вы точно знаете все детали и понимаете какие конкретные действия оплачиваете. Наши консультации проводят лично руководители компании. Вся процедура происходит без посредников: рекламных агентов и региональных представителей. А значит, неожиданные сюрпризы и переплата за услуги исключены.
+                </p>
+                <p class="person__descr">
+                  Мы верим, что все дилетанты, посредники и жадные юридические компании, которые искусственно завышают цены на банкротство, рано или поздно исчезнут с рынка юридических услуг по банкротству физических лиц в Российской Федерации.»
+                </p>
+                <div class="person__name">Глеб Вадимович Михайлов</div>
+                <div class="person__position">управляющий партнер компании «Мой Банкрот»</div>
+                <button type="button" class="btn person__btn" data-js-action="open-modal" data-modal="callback">
+                  Проконсультироваться по телефону с Михайловым Г. В.
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {% partial "steps" %}
+
+          <section class="section hurry">
+            <div class="hurry__wrap wrap">
+              <img src="{{ 'hurry.png'|media }}" alt="" class="hurry__clock" />
+              <h3 class="hurry__title">Нужно ли спешить с банкротством?</h3>
+              <div class="hurry__subtitle">Возможные последствия:</div>
+              <div class="hurry__row">
+                <div class="hurry__item">
+                  <img src="{{ 'hurry/procuracy.png'|media }}" alt="Административный штраф" class="hurry__item-img" />
+                  <div class="hurry__item-content">
+                    <div class="hurry__item-title">Административный штраф</div>
+                    <div class="hurry__item-desc">Органы прокуратуры накладывают штраф в размере до 3000 рублей ежемесячно (ч.5 ст. 14.13 КоАП РФ)</div>
+                  </div>
+                </div>
+                <div class="hurry__item">
+                  <img src="{{ 'hurry/law.png'|media }}" alt="Может быть поздно" class="hurry__item-img" />
+                  <div class="hurry__item-content">
+                    <div class="hurry__item-title">Может быть поздно</div>
+                    <div class="hurry__item-desc">Лишение права на списание долгов в будущем (п. 4 ст. 213.28 Закона о банкротстве)</div>
+                  </div>
+                </div>
+                <div class="hurry__item">
+                  <img src="{{ 'hurry/fine.png'|media }}" alt="Штрафы и пени" class="hurry__item-img" />
+                  <div class="hurry__item-content">
+                    <div class="hurry__item-title">Штрафы и пени</div>
+                    <div class="hurry__item-desc">Чем дольше за вами сохраняется невыплаченный долг — тем быстрее рост штрафов, процентов и неустойки</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hurry__tabs">
+                <div class="hurry__slides">
+                  <span data-hurry="current">1</span> из <span>{{ this.theme.steps|length + 1 }}</span>
+                </div>
+                <div class="hurry__inner">
+                  {% for step in this.theme.steps %}
+                  {% set index = loop.index %}
+                  <div class="hurry__tab{{ index == 1 ? ' hurry__tab_active' : ''}}" data-hurry="tab">
+                    <div class="hurry__tab-content">
+                      <div class="hurry__tab-title">{{ step.title }}</div>
+                      <p class="hurry__tab-descr">{{ step.desc }}</p>
+                    </div>
+                  </div>
+                  {% endfor %}
+                  <div class="hurry__tab" data-hurry="tab">
+                    <div class="hurry__tab-content">
+                      <div class="hurry__tab-title">Начните работу над долгом прямо сейчас!</div>
+                      {% component 'formwidget2' %}
+                    </div>
+                  </div>
+                </div>
+                <div class="hurry__nav">
+                  <button type="button" class="btn hurry__btn hurry__btn_prev" disabled data-hurry="prev">
+                    Назад
+                  </button>
+                  <button type="button" class="btn hurry__btn" data-hurry="next">
+                    Дальше
+                  </button>
+                  <button type="submit" class="btn hurry__btn hurry__btn_hide" data-attach-loading data-hurry="send" form="hurry-form">Отправить заявку</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {% component 'advantage' %}
+
+          <section id="faq" class="section questions">
+            <div class="questions__wrap wrap">
+              <img src="{{ 'faq.png'|media }}" alt="" class="questions__icon" />
+              <h3 class="questions__title">Процедура банкротства физических лиц — новая для российских граждан, поэтому часто вызывает опасения</h3>
+              <p class="questions__subtitle">Мы ответим на самые частые вопросы, чтобы развеять ваши сомнения</p>
+
+                {% component 'faq' %}
+
+            </div>
+            <div class="person__wrap wrap">
+              <div class="person__figure">
+                <div class="person__figure-circle person__figure-circle_white">
+                  <picture>
+                    <source class="person__figure-img" srcset="https://fpa.ru/wp-content/themes/fpalaw/assets/img/services/humans/ilya-viktorovich.png" />
+                    <img class="person__figure-img" src="https://fpa.ru/wp-content/themes/fpalaw/assets/img/services/humans/ilya-viktorovich.png" alt="" title="" loading="lazy" />
+                  </picture>
+                </div>
+              </div>
+              <div class="person__container">
+                <div class="person__label">Задайте нам вопрос</div>
+                <div class="person__title">Не нашли ответа на свой вопрос? Задайте его нам!</div>
+                <p class="person__descr">
+                  «Наш единственный профиль работы — процедуры личного банкротства, с помощью которых мы помогаем людям преодолевать кризисные моменты в жизни. В Российской федерации процедура банкротства физических лиц имеют репутацию дорогостоящих и неизведанных процедур. Мы надеемся своей работой повлиять на эту ситуацию и предоставляем всем клиентам простой и понятный сервис по умеренной стоимости, без недоразумений, скрытых условий и связанных с ними удорожаний
+                </p>
+
+                {% component 'formwidget3' %}
+
+              </div>
+            </div>
+          </section>
+
+          {% component 'services3' %}
+
+        </main>
+        <div class="popup" data-js-action="modal">
+
+          <div class="popup__dialog">
+            <div class="popup__modal popup__modal_lg" data-modal="header">
+              <button class="popup__close" data-js-action="close-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="popup__close-ico" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                  <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                </svg>
+              </button>
+              {% component 'services2' %}
+            </div>
+
+            <div class="popup__modal" data-modal="callback">
+              <button class="popup__close" data-js-action="close-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="popup__close-ico" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                  <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                </svg>
+              </button>
+              <div class="popup__title">Получите свою льготу или специальное предложение</div>
+              {% component 'formwidget' %}
+            </div>
+
+            <div class="popup__modal" data-modal="success">
+              <button class="popup__close" data-js-action="close-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="popup__close-ico" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                  <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                </svg>
+              </button>
+              <div class="popup__title">Спасибо, вскоре мы с вами свяжемся!</div>
+              <div class="popup__container">
+                <svg xmlns="http://www.w3.org/2000/svg" class="popup__success-ico" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                  <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                  <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+                </svg>
+                <button type="button" class="btn form__btn" data-js-action="close-modal">Закрыть окно</button>
+              </div>
+            </div>
+
+            <div class="popup__modal popup__modal_lg" data-modal="privacy">
+              <button class="popup__close" data-js-action="close-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="popup__close-ico" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                  <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                </svg>
+              </button>
+              <div class="popup__title">Политика конфиденциальности</div>
+              <div class="popup__privacy">
+                {% content 'privacy.htm' %}
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <button class="button-up" id="button-up">
+          <svg xmlns="http://www.w3.org/2000/svg" class="button-up__ico" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+            <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+          </svg>
+        </button>
+        <!-- Footer -->
+        {% partial "footer" %}
+        {% partial "scripts" %}
+    </body>
+</html>

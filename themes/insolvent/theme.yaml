@@ -1,0 +1,6 @@
+name: Банкротство
+description: 'Новая тема для банкротства'
+author: bardinteam
+homepage: bardinteam.ru
+code: ''
+form: config/fields.yaml

@@ -1,0 +1,5 @@
+title: Videos
+nameFrom: title
+modelClass: Acme\Settings\Models\Video
+toolbar:
+    buttons: reorder_toolbar

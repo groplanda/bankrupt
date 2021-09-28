@@ -19,19 +19,11 @@ navigation:
                 label: Преимущества
                 url: acme/settings/advantages
                 icon: icon-star
-            side-menu-test:
-                label: Отзывы
-                url: acme/settings/feedback
-                icon: icon-comment-o
             side-menu-faq:
                 label: FAQ
                 url: acme/settings/answers
                 icon: icon-question-circle
-            menu-content:
-                label: 'Текстовые блоки'
-                url: acme/settings/content
-                icon: icon-file-image-o
-            team-item:
-                label: Команда
-                url: acme/settings/teams
-                icon: icon-users
+            side-menu-video:
+                label: Видео
+                url: acme/settings/videos
+                icon: icon-youtube-play

@@ -34,4 +34,4 @@ fields:
                     label: Описание
                     size: large
                     span: auto
-                    type: richeditor
+                    type: textarea

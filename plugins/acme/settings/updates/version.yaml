@@ -54,7 +54,9 @@
 1.0.19:
     - 'Created table acme_settings_shop'
     - builder_table_create_acme_settings_shop.php
-
 1.0.20:
     - 'Created table acme_settings_faq'
     - builder_table_create_acme_settings_faq.php
+1.0.21:
+    - 'Created table acme_settings_video'
+    - builder_table_create_acme_settings_video.php

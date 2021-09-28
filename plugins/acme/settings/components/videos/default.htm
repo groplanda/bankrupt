@@ -1,0 +1,59 @@
+{% set videos = __SELF__.videos %}
+<section id="reviews" class="slider section">
+  <div class="slider__wrap wrap">
+    <img src="{{ 'comment.png'|media }}" alt="" class="slider__comment" />
+    <h3 class="slider__title title">А это <span>видео-отзывы</span> от наших пользователей</h3>
+    <div class="slider__box">
+      <div class="slider__container swiper" data-js-slider="video" id="slider">
+        <div class="slider__wrapper swiper-wrapper">
+          {% for video in videos %}
+          <div class="slider__item swiper-slide">
+            <div class="slider__item-inner">
+              <div class="video video_slider section">
+                <div class="video__container" data-js="slider-video-container">
+                  <div class="video__box">
+                    <img class="video__thumb" src="{{ video.preview ? video.preview|media : 'video-preview.png'|media }} " alt="{{ video.title }}" loading="lazy">
+                    <iframe
+                      class="video__iframe"
+                      data-src="{{ video.url }}"
+                      title="{{ video.title }}"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                      data-js="slider-video-src">
+                    </iframe>
+                    <div class="video__content">
+                      <button class="video__btn btn" type="button" data-js="slider-video-play">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill video__btn-ico" viewBox="0 0 16 16">
+                          <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slider__item-info">
+                <div class="slider__item-name">{{ video.title }}</div>
+                <p class="slider__item-descr">{{ video.descr }}</p>
+              </div>
+              </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="slider__controls">
+        <button class="slider__arrow slider__arrow_prev">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left slider__ico" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+          </svg>
+        </button>
+        <button class="slider__arrow slider__arrow_next">
+          <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-arrow-right slider__ico" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="slider__pagination"></div>
+    </div>
+  </div>
+</section>

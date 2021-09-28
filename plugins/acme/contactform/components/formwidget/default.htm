@@ -1,122 +1,29 @@
 <form
-  class="form shadow rounded"
   id="{{ __SELF__.id }}"
   data-request="{{ __SELF__ }}::onSend"
+  class="form form_person ajax-form"
   data-request-validate
   data-request-flash
 >
-    <h2 class="form__title">
-        Возможно, ваш кредитор <span>уже подал на вас в суд</span>
-    </h2>
-    <p class="form__description">
-        Заполните форму. Мы бесплатно проверим наличие судебных и исполнительных производств.
-    </p>
-    <div class="row">
-        <div class="col-12 mb-3">
-            <input
-                type="text"
-                class="form-control"
-                placeholder="Ваше имя"
-                name="user_name"
-                id="name"
-            />
-            <span class="invalid-feedback" data-validate-for="user_name"></span>
-            <div class=""></div>
-        </div>
-        <div class="col-12 mb-3">
-            <input
-                type="text"
-                class="form-control"
-                placeholder="Ваш телефон"
-                name="user_phone"
-                id="phone"
-                data-input="phone"
-            />
-            <span class="invalid-feedback" data-validate-for="user_phone"></span>
-        </div>
-        <div class="col-12 col-md-12 mb-3">
-            <button
-                class="btn btn-primary btn-block"
-                type="submit"
-                class="button disabled"
-                data-attach-loading
-                data-button="send"
-                disabled
-            >
-                ОТПРАВИТЬ
-                <?xml version="1.0" encoding="iso-8859-1"?>
-                <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                <svg class="form__submit-ico" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                <g>
-                    <g>
-                    <polygon points="119.988,365.064 119.988,492 396.949,122.719 		"/>
-                    </g>
-                </g>
-                <g>
-                    <g>
-                    <path d="M8.279,243.581c-10.502,5.251-11.149,20.025-1.157,26.191l103.449,63.668l376.6-331.862L488.356,0L8.279,243.581z"/>
-                    </g>
-                </g>
-                <g>
-                    <g>
-                    <path d="M509.239,22.136L224.05,403.264l173.071,106.509c8.793,5.44,20.641,0.461,22.603-10.005L512,19.719L509.239,22.136z"/>
-                    </g>
-                </g>
-                <g>
-                </g>
-                <g>
-                </g>
-                <g>
-                </g>
-                <g>
-                </g>
-                <g>
-                </g>
-                <g>
-                </g>
-                <g>
-                </g>
-                <g>
-                </g>
-                <g>
-                </g>
-                <g>
-                </g>
-                <g>
-                </g>
-                <g>
-                </g>
-                <g>
-                </g>
-                <g>
-                </g>
-                <g>
-                </g>
-                </svg>
-            </button>
-        </div>
-        <div class="col-12 col-md-12">
-            <div class="form-group form-check">
-                <input
-                    type="checkbox"
-                    class="form-check-input mt-0"
-                    id="confirm"
-                    data-checkbox="confirm"
-                />
-                <label
-                    class="form-check-label text-dark"
-                    for="confirm"
-                    >Согласен на обработку
-                    персональных данных</label
-                >
-            </div>
-        </div>
-    </div>
-    {% flash %}
-    <div class="text-center mt-3 mb-3 alert alert-{{ type }}" data-interval="4">
-        {{ message }}
-    </div>
-    {% endflash %}
-</form>
+  <div class="form__group">
+    <textarea name="user_message" class="form__field form__field_textarea" placeholder="Напишите свой вопрос или опишите свою ситуацию"></textarea>
+    <span class="form__error" data-validate-for="user_message"></span>
+  </div>
+  <div class="form__group">
+    <input type="text" name="user_phone" class="form__field phone-mask" placeholder="+7(999) 999-99-99" />
+    <span class="form__error" data-validate-for="user_phone"></span>
+  </div>
 
+  <div class="form__privacy">
+    <svg xmlns="http://www.w3.org/2000/svg" class="form__privacy-ico" fill="currentColor" class="bi bi-shield-fill-check" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm2.146 5.146a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647z"/>
+    </svg>
+    <p class="form__privacy-text">
+      Мы гарантируем безопасность и сохранность Ваших данных. Нажимая на кнопку, вы даете согласие на обработку своих персональных данных в соответствии с
+      <a href="#!" data-js-action="open-modal" data-modal="privacy">«Политикой конфиденциальности»</a>
+    </p>
+  </div>
+
+  <button type="submit" class="btn form__btn" data-attach-loading>Задать вопрос</button>
+
+</form>

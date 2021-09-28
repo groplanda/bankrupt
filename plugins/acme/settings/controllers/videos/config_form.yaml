@@ -1,0 +1,10 @@
+name: Videos
+form: $/acme/settings/models/video/fields.yaml
+modelClass: Acme\Settings\Models\Video
+defaultRedirect: acme/settings/videos
+create:
+    redirect: 'acme/settings/videos/update/:id'
+    redirectClose: acme/settings/videos
+update:
+    redirect: acme/settings/videos
+    redirectClose: acme/settings/videos

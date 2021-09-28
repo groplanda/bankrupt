@@ -41,7 +41,7 @@ class FormWidget extends ComponentBase
       if($view == 'third') {
         return $this->renderPartial('@_modal.htm');
     }
-    }
+  }
 
   public function getUserMail() {
 
@@ -55,7 +55,8 @@ class FormWidget extends ComponentBase
     $rules = [
       'user_name'  => 'required|min:3|max:50',
       'user_phone' => 'required|min:5|max:50',
-      'user_mail'  => 'email'
+      'user_mail'  => 'email',
+      'user_message' => 'max:1000'
     ];
 
     $messages = [
