@@ -19,15 +19,16 @@
 
   &__icon {
     width: 100%;
-    max-width: 150px;
-    margin: 0 auto;
+    max-width: 100px;
+    margin: 0 auto 30px;
 
     @media(max-width: 991px) {
-      max-width: 120px;
+      max-width: 80px;
     }
 
     @media(max-width: 767px) {
-      max-width: 100px;
+      max-width: 65px;
+      margin-bottom: 20px;
     }
   }
 

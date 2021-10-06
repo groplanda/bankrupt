@@ -104,14 +104,12 @@
     justify-content: center;
     border-radius: 5px;
     cursor: pointer;
-    transform: skewX(-20deg);
   }
 
   &__btn-text {
     font-weight: 700;
     font-size: 14px;
     color: #fff;
-    transform: skewX(20deg);
   }
 
   &__logo {
