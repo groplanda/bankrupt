@@ -8,6 +8,13 @@ description = "Meta tags"
   <meta name="author" content="OctoberCMS">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="OctoberCMS">
+  <meta property="og:title" content="{{this.theme.site_name}}">
+  <meta property="og:description" content="{{ this.page.meta_title ? this.page.meta_title : this.page.title }}">
+  <meta property="og:image" content="img/og-image.jpg">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="http://мой-банкрот.рф">
+  <link rel="image_src" href="{{ 'assets/images/logo.png'|theme }}">
   <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}">
   <link href="{{ 'assets/dist/css/app.css'|theme }}" rel="stylesheet" />
   {% styles %}

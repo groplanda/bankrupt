@@ -27,6 +27,12 @@
     position: relative;
     background: linear-gradient(135deg,#edf0f8 15%,#d7deef 85%);
     margin-top: 100px;
+    overflow: hidden;
+    box-shadow: 0 14px 34px rgb(0 29 104 / 12%);
+
+    @media(max-width: 767px) {
+      margin-top: 0;
+    }
 
     &_white {
       background: #FFF;
