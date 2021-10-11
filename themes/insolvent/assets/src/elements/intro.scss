@@ -1,20 +1,36 @@
 .intro {
   background: linear-gradient(135deg,#edf0f8 15%,$greyColor 85%);
-  background-image: url('/storage/app/media/bg-top.jpg');
+  background-image: url('/themes/insolvent/assets/images/intro.jpg');
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
   overflow-x: hidden;
 
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background: rgba($color: #d6ddef, $alpha: .8);
+  }
+
   @media(max-width: 991px) {
     padding-bottom: 40px;
+  }
+
+  @media(max-width: 420px) {
+    background-image: url('/themes/insolvent/assets/images/intro-mobile.jpg');
   }
 
   $root: &;
 
   &__wrap {
     position: relative;
+    z-index: 2;
   }
 
   &__container {
@@ -69,13 +85,14 @@
 
     span {
       color: $blueColor;
+      text-shadow: 1px 1px 2px rgba($color: $primaryColor, $alpha: .75);
     }
   }
 
   &__subtitle {
     margin-bottom: 40px;
     font-size: 26px;
-    color: $secondColor;
+    color: $primaryColor;
 
     @media(max-width: 1199px) {
       font-size: 20px;
