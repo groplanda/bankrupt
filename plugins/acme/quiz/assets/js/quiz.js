@@ -86,7 +86,7 @@ function removeActiveClass() {
 function openModal(popup) {
   popup.classList.add('popup_active');
   popup.style.display = "block";
-  document.body.style.overflow = "hidden";
+  document.body.classList.add("modal-open");
 
   setTimeout(() => {
     const loading = popup.querySelector('[data-calc="calc-loading"]'),
@@ -102,7 +102,7 @@ function backOnCalc() {
   const popup = this.closest('[data-calc-step]');
   popup.classList.remove('popup_active');
   popup.style.display = "none";
-  document.body.style.overflow = "initial";
+  document.body.classList.remove("modal-open");
 
   currentStep = steps.length - 2;
   removeActiveClass();
