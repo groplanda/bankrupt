@@ -1,0 +1,11 @@
+columns:
+    name:
+        label: Имя
+        type: text
+        searchable: true
+        sortable: true
+    sort_order:
+        label: 'Порядок сортировки'
+        type: number
+        searchable: true
+        sortable: true

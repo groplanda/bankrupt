@@ -2,27 +2,41 @@ import $ from 'jquery';
 window.$ = window.jQuery = $;
 import 'jquery.maskedinput/src/jquery.maskedinput.js'
 import 'swiper/css/bundle';
+require('lightbox2/dist/js/lightbox.min.js');
 import Swiper, { Navigation, Pagination } from 'swiper';
 
 $(document).ready(function() {
 
-  let IS_MOBILE = true;
+  let IS_MOBILE = true,
+      IS_OPEN_MODAL = false;
 
   if ($( window ).width() > 767) {
     IS_MOBILE = false;
   }
 
+  $(window).on('mouseleave', function(e) {
+    if (e.clientY < 0 && !IS_OPEN_MODAL) {
+      $('[data-modal="callback" ]').first().trigger('click');
+      $('#popup-title').text('Не нашли то что нужно? Оставьте заявку и мы с вами свяжемся!')
+    }
+  })
+
   $('[data-js-action="open-modal"]').on("click", function(e) {
+    IS_OPEN_MODAL = true;
     e.preventDefault();
-    const modalId = $(this).data('modal');
-    const popup = $('[data-js-action="modal"]');
-    const currentModal = popup.find(`[data-modal="${modalId}"]`)
+    const modalId = $(this).data('modal'),
+          popup = $('[data-js-action="modal"]'),
+          currentModal = popup.find(`[data-modal="${modalId}"]`),
+          triggerTitle = $(this).data('title');
 
     if (currentModal.length) {
 
       popup.find('.popup__modal').each(function() {
         $(this).hide();
       })
+      if (triggerTitle) {
+        $('#popup-title').text(triggerTitle);
+      }
       const bodyOffset = getScrollBarWith();
       popup.addClass('popup_active');
       popup.fadeIn();
@@ -274,6 +288,52 @@ $(document).ready(function() {
 
       })
     });
+  }
+
+  // cases
+
+  if($('[data-js-slider="cases"]').length) {
+    new Swiper('[data-js-slider="cases"]', {
+      loop: false,
+      slidesPerView: 3,
+      spaceBetween: 30,
+      slideClass: 'cases__item',
+      slideActiveClass: 'cases__item_active',
+      navigation: {
+        nextEl: '.cases__arrow_next',
+        prevEl: '.cases__arrow_prev',
+      },
+      pagination: {
+        el: '.cases__pagination',
+        dynamicBullets: false,
+        bulletClass: 'cases__bullet',
+        bulletActiveClass: 'cases__bullet_active',
+        currentClass: 'cases__bullet_current',
+        clickable: true
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1.2,
+          spaceBetween: 15,
+        },
+        576: {
+          slidesPerView: 1.7,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        992: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        },
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 30
+        }
+      }
+    })
   }
 
   // anchors

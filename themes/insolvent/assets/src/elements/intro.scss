@@ -89,6 +89,21 @@
     }
   }
 
+  &__btn {
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+
+    @media(max-width: 767px) {
+      border-radius: 7px;
+      font-size: 14px;
+      padding: 10px 16px;
+    }
+  }
+
   &__subtitle {
     margin-bottom: 40px;
     font-size: 26px;

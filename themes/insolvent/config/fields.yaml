@@ -100,6 +100,13 @@ tabs:
         placeholder: Банкротство
         span: full
         tab: Общие
+      site_metrika:
+        label: Коды метрик
+        type: codeeditor
+        size: huge
+        language: html
+        span: full
+        tab: Общие
       steps:
         type: repeater
         prompt: Добавить этап

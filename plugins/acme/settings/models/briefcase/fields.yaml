@@ -1,0 +1,49 @@
+fields:
+    name:
+        label: Название
+        span: auto
+        type: text
+    case:
+        label: 'Дело №'
+        span: auto
+        type: text
+    link:
+        label: 'Ссылка на дело'
+        span: auto
+        type: text
+    is_active:
+        label: 'Отображать?'
+        span: auto
+        type: switch
+tabs:
+    fields:
+        description:
+            label: Описание
+            size: large
+            span: full
+            type: textarea
+            tab: Общее
+        image:
+            label: 'Фото документа'
+            mode: image
+            imageWidth: '100'
+            imageHeight: '100'
+            span: auto
+            type: mediafinder
+            tab: Общее
+        props:
+            label: Свойства
+            prompt: Добавить
+            span: full
+            type: repeater
+            tab: Описание
+            form:
+                fields:
+                    label:
+                        label: Заголовок
+                        span: auto
+                        type: text
+                    value:
+                        label: Описание
+                        span: auto
+                        type: text

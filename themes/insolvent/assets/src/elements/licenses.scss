@@ -1,0 +1,76 @@
+.licenses {
+  padding: 140px 0 40px;
+
+  @media(max-width: 991px) {
+    padding: 70px 0 20px;
+  }
+
+  @media(max-width: 767px) {
+    padding: 40px 0;
+  }
+
+  &__wrap {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 60px;
+    text-align: center;
+
+    @media(max-width: 767px) {
+      font-size: 21px;
+      margin-bottom: 30px;
+    }
+
+    @media(max-width: 350px) {
+      font-size: 18px;
+    }
+  }
+
+  &__container {
+    width: 100%;
+
+    @media(max-width: 767px) {
+      margin-right: -12px;
+      width: calc(100% + 12px);
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+      -ms-overflow-style: none;
+      overflow-x: auto;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @media(max-width: 767px) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__item {
+    display: block;
+    width: 100%;
+    max-width: 31.5%;
+    margin-bottom: 30px;
+    box-shadow: 0 14px 34px rgb(0 29 104 / 12%);
+
+    @media(max-width: 767px) {
+      margin-bottom: 0;
+      margin-right: 20px;
+      max-width: none;
+      min-width: 280px;
+    }
+  }
+}

@@ -27,3 +27,7 @@ navigation:
                 label: Видео
                 url: acme/settings/videos
                 icon: icon-youtube-play
+            side-menu-cases:
+                label: Дела
+                url: acme/settings/briefcases
+                icon: icon-briefcase

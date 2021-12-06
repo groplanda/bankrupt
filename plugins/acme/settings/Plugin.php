@@ -13,7 +13,8 @@ class Plugin extends PluginBase
             'Acme\Settings\Components\feedbackForm' => 'feedbackform',
             'Acme\Settings\Components\feedbackList' => 'feedbacklist',
             'Acme\Settings\Components\Faq' => 'faq',
-            'Acme\Settings\Components\Videos' => 'videos'
+            'Acme\Settings\Components\Videos' => 'videos',
+            'Acme\Settings\Components\Brief' => 'brief'
         ];
     }
 

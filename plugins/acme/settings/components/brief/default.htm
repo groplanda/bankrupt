@@ -1,0 +1,68 @@
+{% set briefs = __SELF__.briefs %}
+{% if briefs|length > 0 %}
+<section class="section cases">
+  <div class="wrap cases__wrap">
+    <img src="{{ 'briefcase.png'|media }}" alt="" class="cases__icon" title="" />
+    <h3 class="cases__title">Примеры <span>завершенных</span> дел</h3>
+    <div class="cases__box">
+      <div class="cases__container swiper" data-js-slider="cases" id="cases">
+        <div class="cases__wrapper swiper-wrapper">
+          {% for brief in briefs %}
+          <div class="cases__item swiper-slide">
+            <div class="cases__item-inner">
+              <a href="{{ brief.image|media }}" class="cases__item-url" data-lightbox="cases">
+                <picture>
+                  <source class="cases__item-image" srcset="{{ brief.image|media|resize(375,535, { mode: 'crop', quality: '80'}) }}" />
+                  <img class="cases__item-image" src="{{ brief.image|media|resize(375,535, { mode: 'crop', quality: '80'}) }}" alt="{{ brief.name }}" title="{{ brief.name }}" loading="lazy" />
+                </picture>
+              </a>
+              <div class="cases__item-body">
+                <div class="cases__item-title">{{ brief.name }}</div>
+                {% if brief.link %}
+                <a href="{{ brief.link }}" target="_blank" rel="noopener noreferrer" class="cases__item-link">Дело № {{ brief.case }}</a>
+                <div class="cases__item-subtitle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="cases__item-subtitle-ico">
+                    <g data-name="Layer 2"><g data-name="arrow-ios-upward">
+                      <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"/>
+                      <path d="M18 15a1 1 0 0 1-.64-.23L12 10.29l-5.37 4.32a1 1 0 0 1-1.41-.15 1 1 0 0 1 .15-1.41l6-4.83a1 1 0 0 1 1.27 0l6 5a1 1 0 0 1 .13 1.41A1 1 0 0 1 18 15z"/></g>
+                    </g>
+                  </svg>
+                  Проверить на сайте Арбитражного суда
+                </div>
+                {% endif %}
+                {% if brief.props|length > 0 %}
+                <div class="cases__item-list">
+                  {% for row in brief.props %}
+                  <div class="cases__item-row">
+                    <div class="cases__item-label">{{ row.label }}</div>
+                    <div class="cases__item-value">{{ row.value }}</div>
+                  </div>
+                  {% endfor %}
+                </div>
+                {% endif %}
+                <button type="button" class="btn cases__btn" data-js-action="open-modal" data-modal="callback" data-title="Списать долги прямо сейчас!">
+                  Списать долги
+                </button>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="cases__controls">
+        <button class="cases__arrow cases__arrow_prev">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="cases__ico" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+          </svg>
+        </button>
+        <button class="cases__arrow cases__arrow_next">
+          <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="cases__ico" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="cases__pagination"></div>
+    </div>
+  </div>
+</section>
+{% endif %}

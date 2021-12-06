@@ -6,11 +6,11 @@
     {% for item in service.services %}
     <div class="services__item">
       <img src="{{ item.service_image|media }}" alt="{{ item.service_title|raw }}"" class="services__item-ico">
-      <div class="services__item-title">{{ item.service_title|raw }}"</div>
+      <div class="services__item-title">{{ item.service_title|raw }}</div>
       <p class="services__item-descr">{{ item.service_desc|raw }}</p>
     </div>
     {% endfor %}
   </div>
-  <button type="button" class="btn services__btn" data-js-action="open-modal" data-modal="callback">Узнайте все о банкротстве в вашем случае</button>
+  <button type="button" class="btn services__btn" data-js-action="open-modal" data-modal="callback" data-title="Получить информацию о банкротстве">Узнайте все о банкротстве в вашем случае</button>
 </section>
 

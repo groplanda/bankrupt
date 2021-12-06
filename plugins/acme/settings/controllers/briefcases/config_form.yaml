@@ -1,0 +1,10 @@
+name: BriefCases
+form: $/acme/settings/models/briefcase/fields.yaml
+modelClass: Acme\Settings\Models\BriefCase
+defaultRedirect: acme/settings/briefcases
+create:
+    redirect: 'acme/settings/briefcases/update/:id'
+    redirectClose: acme/settings/briefcases
+update:
+    redirect: acme/settings/briefcases
+    redirectClose: acme/settings/briefcases

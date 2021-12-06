@@ -1,33 +1,22 @@
 {% set gallery = __SELF__.gallery %}
-<div class="row">
-  <div class="col-12">
-      <div
-          class="gallery__header text-center text-white mb-5"
-      >
-          <h2 class="title gallery__title">{{ gallery.title|raw }}</h2>
-          <p class="lead gallery__subtitle">
-            {{ gallery.description }}
-          </p>
+{% if gallery.gallery|length > 0 %}
+<section id="licenses" class="licenses section">
+  <div class="licenses__wrap wrap">
+    <h3 class="licenses__title">{{ gallery.title|raw }}</h3>
+    <div class="licenses__container">
+      <div class="licenses__row">
+        {% for image in gallery.gallery %}
+        {% set full = image.thumb(false, 800) %}
+        {% set poster = image.thumb(385,555, { 'mode': 'crop', quality: '80' }) %}
+        <a href="{{ full }}" class="licenses__item" data-lightbox="roadtrip">
+          <picture>
+            <source class="licenses__item-img" srcset="{{ poster }}" />
+            <img class="licenses__item-img" src="{{ poster }}" alt="{{ image.title }}" title="{{ image.title }}" loading="lazy" />
+          </picture>
+        </a>
+        {% endfor %}
       </div>
+    </div>
   </div>
-</div>
-<div class="gallery__row row justify-content-center">
-  {% for image in gallery.gallery %}
-  {% set full = image.thumb(1000, false) %}
-  {% set poster = image.thumb(250, 250, {'mode': 'crop'}) %}
-  <div class="col-6 col-sm-6 col-md-3">
-      <a
-          href="{{ full }}"
-          data-lightbox="gallery"
-          data-title="{{ image.title }}"
-          class="d-flex gallery__item shadow"
-      >
-          <img
-              src="{{ poster }}"
-              alt="{{ image.title }}"
-              class="gallery__thumb"
-          />
-      </a>
-  </div>
-  {% endfor %}
-</div>
+</section>
+{% endif %}

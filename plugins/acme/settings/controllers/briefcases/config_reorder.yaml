@@ -1,0 +1,4 @@
+title: BriefCases
+modelClass: Acme\Settings\Models\BriefCase
+toolbar:
+    buttons: reorder_toolbar
