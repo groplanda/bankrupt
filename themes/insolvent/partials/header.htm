@@ -31,6 +31,13 @@ description = "Header"
           </svg>
         </a>
         {% endif %}
+        {% if this.theme.tg %}
+        <a class="header__social-link" href="{{ this.theme.tg }}" aria-label="Ссылка на telegram" title="telegram">
+          <svg class="header__social-ico header__social-ico_tg" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.544319 6.26183L3.76299 7.46201L5.01771 11.499C5.07227 11.7717 5.39959 11.8263 5.6178 11.6626L7.41806 10.1897C7.58172 10.026 7.8545 10.026 8.07271 10.1897L11.2914 12.5355C11.5096 12.6991 11.8369 12.59 11.8915 12.3173L14.2918 0.861038C14.3464 0.58827 14.0736 0.315505 13.8008 0.424612L0.544319 5.55264C0.216998 5.66175 0.216998 6.15273 0.544319 6.26183ZM4.85406 6.86192L11.1823 2.98862C11.2914 2.93407 11.4005 3.09773 11.2914 3.15229L6.10878 8.00755C5.94512 8.17121 5.78146 8.38942 5.78146 8.66219L5.6178 9.97147C5.6178 10.1351 5.34503 10.1897 5.29048 9.97147L4.63583 7.57112C4.47217 7.29835 4.58129 6.97103 4.85406 6.86192Z" fill="currentColor"/>
+          </svg>
+        </a>
+        {% endif %}
       </div>
       <button type="button" data-js-action="open-modal" data-modal="header" class="header__btn btn">
         <span class="header__btn-text">Вам скидка!</span>

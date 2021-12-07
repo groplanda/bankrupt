@@ -51,13 +51,13 @@ tabs:
           cssClass: col-md-4
           tab: Контакты
           placeholder: '79147580525'
-      viber:
+      tg:
           type: text
-          label: Viber
+          label: Telegram
           span: storm
           cssClass: col-md-4
           tab: Контакты
-          placeholder: '79147580525'
+          placeholder: 'https://t.me/username'
       vk:
           type: text
           label: Вконтакте

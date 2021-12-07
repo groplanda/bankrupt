@@ -144,6 +144,10 @@
     width: 20px;
     height: 20px;
 
+    &_tg {
+      margin-right: 2px;
+    }
+
     @media(max-width: 767px) {
       width: 16px;
       height: 16px;
