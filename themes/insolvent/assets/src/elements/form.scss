@@ -119,6 +119,27 @@
       font-size: 12px;
       border-radius: 7px;
     }
+
+    &_download {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+
+  &__btn-download {
+    fill: #FFF;
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+
+    @media(max-width: 767px) {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
   }
 
   &__privacy {
