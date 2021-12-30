@@ -14,15 +14,10 @@
                 <div class="video__container" data-js="slider-video-container">
                   <div class="video__box">
                     <img class="video__thumb" src="{{ video.preview ? video.preview|media : 'video-preview.png'|media }} " alt="{{ video.title }}" loading="lazy">
-                    <iframe
-                      class="video__iframe"
-                      data-src="{{ video.url }}"
-                      title="{{ video.title }}"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                      data-js="slider-video-src">
-                    </iframe>
+                    <video src="{{ video.url|media }}" data-js="slider-video-src" class="video__iframe" controls></video>
+                    <div class="video__timeline" data-js="slider-video-time">
+                      <span class="video__timeline-percent" data-js="slider-video-timeline"></span>
+                    </div>
                     <div class="video__content">
                       <button class="video__btn btn" type="button" data-js="slider-video-play">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill video__btn-ico" viewBox="0 0 16 16">

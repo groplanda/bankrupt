@@ -8,11 +8,11 @@ fields:
         span: auto
         type: switch
     url:
-        label: 'Ссылка на видео'
+        label: Видео
+        mode: file
         span: full
-        placeholder: 'https://www.youtube.com/embed/754pSl_wm1E?'
-        type: text
-        comment: 'только вставка (embed)'
+        type: mediafinder
+        comment: finder
     descr:
         label: Описание
         size: large

@@ -237,7 +237,7 @@ $(document).ready(function() {
     Swiper.use([Navigation, Pagination]);
 
     const slider = new Swiper('[data-js-slider="video"]', {
-      loop: true,
+      loop: false,
       slidesPerView: 1,
       spaceBetween: 0,
       slideClass: 'slider__item',
@@ -257,39 +257,76 @@ $(document).ready(function() {
     })
 
     slider.on('slideChange', function() {
-      const prevSlide = slider.slides[slider.previousIndex],
-            video = $(prevSlide).find('[data-js="slider-video-src"]'),
-            videoSrc = video.prop('src');
+      const parentEl = slider.el.querySelectorAll('[data-js="slider-video-container"]'),
+            classname = "video__container_play";
 
-      if (videoSrc.indexOf('&autoplay=1') !== -1) {
-        const newVideoSrc = videoSrc.replace('&autoplay=1', '');
-        video.data('src',newVideoSrc);
-        video.prop('src', '');
-        $(prevSlide).find('.video__box').removeClass('video__container_play');
+      if (parentEl) {
+        parentEl.forEach(parent => {
+          const videoEl = parent.querySelector('[data-js="slider-video-src"]');
+          videoEl.pause();
+          parent.classList.remove(classname);
+        })
       }
-
     })
 
-    playVideo('video__container_play', '[data-js="slider-video-src"]', '[data-js="slider-video-play"]');
+    playVideo('[data-js-slider="video"]');
   }
 
-  function playVideo(classname, video, trigger) {
+  function playVideo(trigger) {
 
-    $(trigger).each(function( index, btn ) {
-      $(btn).on('click', function() {
-        const parentEl = $(btn).parent($('video__content')).parent($('video__container')),
-              videoEl = parentEl.find($(video));
+    const videoEl = document.querySelector(trigger);
 
-        let videoURL = videoEl.data('src');
-        videoURL += "&autoplay=1";
+    if (videoEl) {
 
-        parentEl.addClass(classname);
-        videoEl.prop('src',videoURL);
-
+      videoEl.addEventListener("click", (e) => {
+        const target = e.target;
+        if (target && target.dataset.js === "slider-video-play") {
+          toggleVideo(target, true);
+        }
+        if (target && target.dataset.js === "slider-video-time") {
+          setTime(e);
+        }
       })
-    });
+    }
   }
 
+  function toggleVideo(target, play = true) {
+    const parentEl = target.closest('[data-js="slider-video-container"]'),
+          videoEl = parentEl.querySelector('[data-js="slider-video-src"]'),
+          classname = "video__container_play";
+    if (play) {
+      videoEl.play();
+      parentEl.classList.add(classname);
+    } else {
+      videoEl.pause();
+      parentEl.classList.remove(classname);
+    }
+  }
+
+  function setTime (event) {
+    const video = event.target.previousElementSibling,
+          pos = 100 * event.offsetX / (video.offsetWidth - 40);
+
+    video.currentTime = video.duration / 100 * pos;
+  }
+
+  const videoEl = document.querySelectorAll('[data-js="slider-video-src"]');
+
+  if (videoEl) {
+    videoEl.forEach(video => {
+      video.addEventListener('pause', (e) => {
+        toggleVideo(video, false)
+      });
+      video.addEventListener('timeupdate', e => {
+        const target = e.target;
+        const timeline = target.nextElementSibling.firstElementChild;
+        const percent = target.currentTime / target.duration * 100;
+        if (percent && timeline) {
+          timeline.style.width = percent + '%';
+        }
+      })
+    })
+  }
   // cases
 
   if($('[data-js-slider="cases"]').length) {
