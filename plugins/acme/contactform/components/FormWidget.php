@@ -2,7 +2,7 @@
 
 use Cms\Classes\ComponentBase;
 use Input;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use Validator;
 use ValidationException;
 use Flash;
