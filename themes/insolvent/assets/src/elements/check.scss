@@ -1,0 +1,42 @@
+.check {
+  background: linear-gradient(135deg,#edf0f8 15%,#d7deef 85%);
+  padding: 120px 0;
+
+  @media(max-width: 991px) {
+    padding: 70px 0 30px;
+  }
+
+  @media(max-width: 767px) {
+    padding: 40px 0;
+  }
+
+  &__wrap {
+    max-width: 700px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 34px;
+    margin-bottom: 20px;
+    text-align: center;
+
+    @media(max-width: 767px) {
+      font-size: 21px;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 18px;
+    color: $secondColor;
+    text-align: center;
+    margin-bottom: 60px;
+
+    @media(max-width: 767px) {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+  }
+}

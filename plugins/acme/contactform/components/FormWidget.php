@@ -27,20 +27,23 @@ class FormWidget extends ComponentBase
               'type'              => 'dropdown',
               'default'           => 'slider',
               'placeholder' => 'Выберите тип',
-              'options'     => ['first'=>'Форма главная', 'second'=>'Форма низ', 'third'=>'Форма модал']
+              'options'     => ['first'=>'Форма главная', 'second'=>'Форма низ', 'third'=>'Форма модал', 'check'=>'Форма проверки']
           ]
       ];
   }
 
   public function onRender()
-    {
+  {
       $view = $this->property('formType');
       if($view == 'second') {
           return $this->renderPartial('@_block.htm');
       }
       if($view == 'third') {
         return $this->renderPartial('@_modal.htm');
-    }
+      }
+      if($view == 'check') {
+        return $this->renderPartial('@_check.htm');
+      }
   }
 
   public function getUserMail() {
@@ -79,6 +82,7 @@ class FormWidget extends ComponentBase
         'user_phone' => Input::get('user_phone'),
         'user_mail' => Input::get('user_mail'),
         'user_message' => Input::get('user_message'),
+        'user_birthday' => Input::get('user_birthday'),
       ];
 
       //вставка в базу данных
@@ -86,7 +90,7 @@ class FormWidget extends ComponentBase
       $query->user_name = Input::get('user_name');
       $query->user_phone = Input::get('user_phone');
       $query->user_mail = Input::get('user_mail');
-      $query->user_message = Input::get('user_message');
+      $query->user_message = Input::get('user_message') . ' ' . Input::get('user_birthday') ? ' дата рождения - '. Input::get('user_birthday') : '';
       $query->user_ip = $_SERVER["REMOTE_ADDR"];
       $query->user_status = 1;
       $query->created_at = time();

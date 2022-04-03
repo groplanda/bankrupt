@@ -18,6 +18,9 @@ formType = "second"
 [formwidget formwidget3]
 formType = "first"
 
+[formwidget formwidget4]
+formType = "check"
+
 [services services2]
 serviceName = 1
 servicesType = "list"
@@ -104,6 +107,20 @@ galleryType = "slider"
               </div>
             </div>
           </section>
+
+          <div class="section check">
+            <div class="check__wrap wrap">
+              <div class="check__title">Проверьте долги по базе <br>судебных приставов</div>
+              <p class="check__subtitle">
+                Если вы не знаете был ли у вас суд с банком и какую сумму вам назначил суд для выплаты,
+                проверьте себя по базе приставов и узнайте реальную сумму задолженностей по всем кредиторам
+              </p>
+              <div class="check__group">
+                {% component 'formwidget4' %}
+              </div>
+
+            </div>
+          </div>
 
           {% partial "steps" %}
 

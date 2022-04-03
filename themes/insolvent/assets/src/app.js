@@ -186,6 +186,7 @@ $(document).ready(function() {
 
   // phone mask
   $(".phone-mask").mask("+7(999)999-99-99");
+  $(".birthday-mask").mask("99/99/9999");
 
   // ajax form
 
