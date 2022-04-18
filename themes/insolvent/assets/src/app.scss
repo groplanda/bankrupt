@@ -90,6 +90,7 @@ img {
 .btn {
   color: #FFF;
   background: linear-gradient(360deg,rgba(255,255,255,0) 0,rgba(255,255,255,.2) 100%),$blueColor;
+  cursor: pointer;
 
   &:hover {
     color: #FFF;
@@ -161,4 +162,5 @@ img {
 @import "./elements/licenses.scss";
 @import "./elements/cases.scss";
 @import "./elements/check.scss";
+@import "./elements/payment.scss";
 @import './lightbox.css';

@@ -39,6 +39,9 @@ galleryName = 1
 galleryType = "slider"
 
 [brief]
+
+[formwidget formwidget5]
+formType = "payment"
 ==
 <!DOCTYPE html>
 <html lang="ru">
@@ -78,7 +81,49 @@ galleryType = "slider"
             </div>
           </section>
 
+          <div class="section payment">
+            <div class="payment__wrap wrap">
+              <div class="payment__title">
+                Наше главное преимущество?<br>
+                - Оплата после <span class="payment__line">результата</span>
+              </div>
+              <p class="payment__subtitle">
+                Вы ничем не рискуете. Оплачиваете услуги после признания вас несостоятельным
+              </p>
+              <div class="payment__warn">
+                <div class="payment__warn-image">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="payment__warn-ico" viewBox="0 0 16 16">
+                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z"/>
+                  </svg>
+                </div>
+                {% set mnths = ['','январе','феврале','марте','апреле','мае','июне','июле','августе','сентябре','октябре','ноябре','декабре'] %}
+                <p class="payment__warn-text">
+                  Берем только 7 клиентов в месяц.
+                  В {{ mnths[record.datepublish|date("n")] }} осталось 3 места.
+                </p>
+              </div>
+              <div class="payment__group">
+                {% component 'formwidget5' %}
+              </div>
+
+            </div>
+          </div>
+
           {% component 'videos' %}
+
+          <div class="section check">
+            <div class="check__wrap wrap">
+              <div class="check__title">Проверьте долги по базе <br>судебных приставов</div>
+              <p class="check__subtitle">
+                Если вы не знаете был ли у вас суд с банком и какую сумму вам назначил суд для выплаты,
+                проверьте себя по базе приставов и узнайте реальную сумму задолженностей по всем кредиторам
+              </p>
+              <div class="check__group">
+                {% component 'formwidget4' %}
+              </div>
+
+            </div>
+          </div>
 
           <section class="section person">
             <div class="person__wrap wrap">
@@ -107,20 +152,6 @@ galleryType = "slider"
               </div>
             </div>
           </section>
-
-          <div class="section check">
-            <div class="check__wrap wrap">
-              <div class="check__title">Проверьте долги по базе <br>судебных приставов</div>
-              <p class="check__subtitle">
-                Если вы не знаете был ли у вас суд с банком и какую сумму вам назначил суд для выплаты,
-                проверьте себя по базе приставов и узнайте реальную сумму задолженностей по всем кредиторам
-              </p>
-              <div class="check__group">
-                {% component 'formwidget4' %}
-              </div>
-
-            </div>
-          </div>
 
           {% partial "steps" %}
 

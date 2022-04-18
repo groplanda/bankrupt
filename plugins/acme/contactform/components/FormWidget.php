@@ -27,7 +27,7 @@ class FormWidget extends ComponentBase
               'type'              => 'dropdown',
               'default'           => 'slider',
               'placeholder' => 'Выберите тип',
-              'options'     => ['first'=>'Форма главная', 'second'=>'Форма низ', 'third'=>'Форма модал', 'check'=>'Форма проверки']
+              'options'     => ['first'=>'Форма главная', 'second'=>'Форма низ', 'third'=>'Форма модал', 'check'=>'Форма проверки', 'payment'=>'Форма оплата']
           ]
       ];
   }
@@ -43,6 +43,9 @@ class FormWidget extends ComponentBase
       }
       if($view == 'check') {
         return $this->renderPartial('@_check.htm');
+      }
+      if($view == 'payment') {
+        return $this->renderPartial('@_payment.htm');
       }
   }
 
