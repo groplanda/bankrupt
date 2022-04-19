@@ -1,0 +1,49 @@
+fields:
+    name:
+        label: Город
+        span: auto
+        type: text
+    post_code:
+        label: 'Код города'
+        span: auto
+        type: text
+    street:
+        label: 'Улица полностью'
+        span: full
+        type: text
+    phone:
+        label: Телефон
+        prompt: 'Добавить номер'
+        span: full
+        type: repeater
+        form:
+            fields:
+                link:
+                    label: Ссылка
+                    span: auto
+                    placeholder: '74932574624'
+                    type: text
+                    comment: 'Указать без +'
+                text:
+                    label: Текст
+                    span: auto
+                    placeholder: +7(4932)57-46-24
+                    type: text
+                    comment: Произвольно
+    email:
+        label: Email
+        span: full
+        type: text
+    open:
+        label: 'График работы'
+        span: auto
+        type: text
+    open_sm:
+        label: 'График работы вых.'
+        span: auto
+        type: text
+    map:
+        label: 'Код карты'
+        size: large
+        span: full
+        type: textarea

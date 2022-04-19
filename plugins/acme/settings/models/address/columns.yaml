@@ -1,0 +1,11 @@
+columns:
+    name:
+        label: Город
+        type: text
+        searchable: true
+        sortable: true
+    sort_order:
+        label: Сортировка
+        type: number
+        searchable: true
+        sortable: true

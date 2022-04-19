@@ -1,6 +1,7 @@
 <?php namespace Acme\Settings;
 
 use System\Classes\PluginBase;
+use Illuminate\Foundation\AliasLoader;
 
 class Plugin extends PluginBase
 {
@@ -14,13 +15,21 @@ class Plugin extends PluginBase
             'Acme\Settings\Components\feedbackList' => 'feedbacklist',
             'Acme\Settings\Components\Faq' => 'faq',
             'Acme\Settings\Components\Videos' => 'videos',
-            'Acme\Settings\Components\Brief' => 'brief'
+            'Acme\Settings\Components\Brief' => 'brief',
+            'Acme\Settings\Components\ContactData' => 'ContactData',
+            'Acme\Settings\Components\ContactModal' => 'ContactModal'
         ];
     }
 
     public function registerSettings()
     {
 
+    }
+
+    public function boot()
+    {
+      $this->app['Illuminate\Contracts\Http\Kernel']
+      ->pushMiddleware('Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse');
     }
 
 }

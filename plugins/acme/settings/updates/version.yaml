@@ -66,3 +66,6 @@
 1.0.23:
     - 'Updated table acme_settings_cases'
     - builder_table_update_acme_settings_cases.php
+1.0.24:
+    - 'Created table acme_settings_address'
+    - builder_table_create_acme_settings_address.php

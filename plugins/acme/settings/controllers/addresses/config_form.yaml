@@ -1,0 +1,10 @@
+name: Addresses
+form: $/acme/settings/models/address/fields.yaml
+modelClass: Acme\Settings\Models\Address
+defaultRedirect: acme/settings/addresses
+create:
+    redirect: 'acme/settings/addresses/update/:id'
+    redirectClose: acme/settings/addresses
+update:
+    redirect: acme/settings/addresses
+    redirectClose: acme/settings/addresses

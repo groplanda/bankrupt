@@ -1,3 +1,10 @@
+description = "Mobile nav"
+
+[viewBag]
+
+[ContactData]
+templateType = "mobile"
+==
 <div class="mobile-nav" data-js-action="mobile-menu">
   <div class="mobile-nav__wrap">
     <div class="mobile-nav__header">
@@ -23,19 +30,7 @@
     </div>
     <div class="mobile-nav__content">
 
-      <div class="mobile-nav__content-item">
-        <p class="mobile-nav__content-city">г. Иваново</p>
-        <p class="mobile-nav__content-descr">{{ this.theme.address }}</p>
-      </div>
-
-      <div class="mobile-nav__content-item">
-        <a class="mobile-nav__content-phone" href="tel:{{ this.theme.phone }}">{{ this.theme.phone }}</a>
-        <p class="mobile-nav__content-descr">{{ this.theme.address }}</p>
-      </div>
-
-      <div class="mobile-nav__content-item">
-        <p class="mobile-nav__content-descr">{{ this.theme.open }}</p>
-      </div>
+        {% component 'ContactData' %}
 
       <div class="header__social-title">Мы в социальных сетях:</div>
       <div class="header__social-list">

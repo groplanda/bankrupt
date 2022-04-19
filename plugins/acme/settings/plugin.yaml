@@ -31,3 +31,7 @@ navigation:
                 label: Дела
                 url: acme/settings/briefcases
                 icon: icon-briefcase
+            side-menu-address:
+                label: Контакты
+                url: acme/settings/addresses
+                icon: icon-map-marker

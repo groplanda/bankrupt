@@ -1,0 +1,21 @@
+<div class="mobile-nav__content-item">
+  <p class="mobile-nav__content-city">{{contact.name}}</p>
+  <p class="mobile-nav__content-descr">{{contact.street}}</p>
+</div>
+
+<div class="mobile-nav__content-item">
+  {% for phone in contact.phone %}
+  <a class="mobile-nav__content-phone" href="tel:+{{phone.link}}">{{phone.text}}</a>
+  {% endfor %}
+  {% if contact.email %}
+  <p class="mobile-nav__content-descr">{{contact.email}}</p>
+  {% endif %}
+</div>
+{% if contact.open %}
+<div class="mobile-nav__content-item">
+  <p class="mobile-nav__content-descr">{{contact.open}}</p>
+</div>
+{% endif %}
+<button type="button" data-js-action="open-modal" data-modal="address" class="header__btn header__btn_mobile btn">
+  <span class="header__btn-text">Выбрать город</span>
+</button>

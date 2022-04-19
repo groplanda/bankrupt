@@ -1,0 +1,4 @@
+title: Addresses
+modelClass: Acme\Settings\Models\Address
+toolbar:
+    buttons: reorder_toolbar

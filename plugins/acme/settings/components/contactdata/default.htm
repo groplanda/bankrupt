@@ -1,0 +1,16 @@
+<div class="header__contacts">
+  <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="header__address">
+    <span itemprop="addressLocality" class="header__address-city" data-address="city">{{contact.name}}</span>
+    <span class="header__address-office">
+      <span itemprop="streetAddress" data-address="street">{{contact.street}}</span>
+      <span itemprop="postalCode" data-address="post_code" class="header__address-index" hidden>{{contact.post_code}}</span>
+    </span>
+  </div>
+  {% for phone in contact.phone %}
+  <a itemprop="telephone" class="header__address-phone" href="tel:+{{phone.link}}" data-address="phone">{{phone.text}}</a>
+  {% endfor %}
+  <div class="header__address-open" data-address="open">{{contact.open}}</div>
+  <button type="button" data-js-action="open-modal" data-modal="address" class="header__btn btn">
+    <span class="header__btn-text">Выбрать город</span>
+  </button>
+</div>

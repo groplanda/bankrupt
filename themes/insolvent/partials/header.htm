@@ -1,4 +1,9 @@
 description = "Header"
+
+[ContactData]
+templateType = "default"
+
+[viewBag]
 ==
 <header class="header section">
   <div class="wrap header__wrap" itemscope itemtype="http://schema.org/Organization">
@@ -51,17 +56,7 @@ description = "Header"
       <span itemprop="name" hidden>Центр оказания правовых услуг Мой банкрот</span>
     </div>
 
-    <div class="header__contacts">
-      <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="header__address">
-        <span itemprop="addressLocality" class="header__address-city">г. Иваново</span>
-        <span class="header__address-office">
-          <span itemprop="streetAddress">{{ this.theme.address }}</span>
-          <span itemprop="postalCode" class="header__address-index" hidden>153000</span>
-        </span>
-      </div>
-      <a itemprop="telephone" class="header__address-phone" href="tel:{{ this.theme.phone }}">{{ this.theme.phone }}</a>
-      <div class="header__address-open">{{ this.theme.open }}</div>
-    </div>
+    {% component 'ContactData' %}
 
     <button class="header__mobile" data-js-action="toggle-menu">
       <svg xmlns="http://www.w3.org/2000/svg" class="header__mobile-ico" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">

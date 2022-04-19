@@ -100,6 +100,23 @@ img {
   }
 }
 
+.maintenance {
+  justify-content: center;
+  height: 100vh;
+
+  &__title {
+    color: $secondColor;
+    width: 100%;
+    font-weight: 700;
+    font-size: 28px;
+    text-align: center;
+
+    @media(max-width: 767px) {
+      font-size: 20px;
+    }
+  }
+}
+
 .button-up {
   display: inline-flex;
   align-items: center;
@@ -163,4 +180,5 @@ img {
 @import "./elements/cases.scss";
 @import "./elements/check.scss";
 @import "./elements/payment.scss";
+@import "./elements/contact-modal.scss";
 @import './lightbox.css';

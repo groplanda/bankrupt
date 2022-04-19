@@ -4,8 +4,12 @@ import 'jquery.maskedinput/src/jquery.maskedinput.js'
 import 'swiper/css/bundle';
 require('lightbox2/dist/js/lightbox.min.js');
 import Swiper, { Navigation, Pagination } from 'swiper';
+import { SelectCity } from './plugins/SelectCity';
 
 $(document).ready(function() {
+
+
+  new SelectCity();
 
   let IS_MOBILE = true,
       IS_OPEN_MODAL = false;
