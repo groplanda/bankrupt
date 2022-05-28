@@ -9,7 +9,22 @@ import { SelectCity } from './plugins/SelectCity';
 $(document).ready(function() {
 
 
-  new SelectCity();
+  const selectcity = new SelectCity();
+
+  const checkCookie = async () => {
+    try {
+      const result = await selectcity.checkCookies();
+      if (typeof result !== 'string') {
+        $('[data-modal="address" ]').first().trigger('click');
+      }
+    } catch(e) {
+      console.log(e);
+      throw new Error(e.message)
+
+    }
+  }
+
+  checkCookie();
 
   let IS_MOBILE = true,
       IS_OPEN_MODAL = false;

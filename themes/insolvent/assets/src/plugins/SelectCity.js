@@ -42,6 +42,15 @@ export class SelectCity {
           .catch(e => e)
   }
 
+  checkCookies() {
+    return new Promise((resolve, reject) => {
+      fetch('/api/check-cookie')
+      .then(data => data.json())
+      .then(res => resolve(res))
+      .catch(e => reject(e))
+    })
+  }
+
   selectCurrentCity(event) {
     const target = event.target;
 

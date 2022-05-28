@@ -4,6 +4,11 @@ use Illuminate\Http\Request;
 
 Route::prefix('/api')->group(function () {
 
+  Route::get('/check-cookie/', function () {
+    $hasCookie = Cookie::get('selected_city');
+    return response()->json($hasCookie);
+  });
+
   Route::post('/select-city/', function (Request $request) {
     $id = $request->city_id;
     $cookie = Cookie::forever('selected_city', $id);
