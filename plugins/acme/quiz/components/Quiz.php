@@ -56,7 +56,8 @@ class Quiz extends ComponentBase
     {
 
         $rules = [
-        'user_phone' => 'required|min:5|max:25',
+          'user_name' => 'required|max:50',
+          'user_phone' => 'required|min:5|max:25',
         ];
 
         $messages = [

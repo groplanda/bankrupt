@@ -27,7 +27,14 @@ class FormWidget extends ComponentBase
               'type'              => 'dropdown',
               'default'           => 'slider',
               'placeholder' => 'Выберите тип',
-              'options'     => ['first'=>'Форма главная', 'second'=>'Форма низ', 'third'=>'Форма модал', 'check'=>'Форма проверки', 'payment'=>'Форма оплата']
+              'options'     => [
+                'first'=>'Форма главная',
+                'second'=>'Форма низ',
+                'third'=>'Форма модал',
+                'check'=>'Форма проверки',
+                'payment'=>'Форма оплата',
+                'phone' => 'Только телефон'
+                ]
           ]
       ];
   }
@@ -47,6 +54,9 @@ class FormWidget extends ComponentBase
       if($view == 'payment') {
         return $this->renderPartial('@_payment.htm');
       }
+      if($view == 'phone') {
+        return $this->renderPartial('@_phone.htm');
+      }
   }
 
   public function getUserMail() {
@@ -59,7 +69,7 @@ class FormWidget extends ComponentBase
   {
 
     $rules = [
-      'user_name'  => 'required|min:3|max:50',
+      'user_name'  => 'min:3|max:50',
       'user_phone' => 'required|min:5|max:50',
       'user_mail'  => 'email',
       'user_message' => 'max:1000'
@@ -94,6 +104,60 @@ class FormWidget extends ComponentBase
       $query->user_phone = Input::get('user_phone');
       $query->user_mail = Input::get('user_mail');
       $query->user_message = Input::get('user_message') . ' ' . Input::get('user_birthday') ? ' дата рождения - '. Input::get('user_birthday') : '';
+      $query->user_ip = $_SERVER["REMOTE_ADDR"];
+      $query->user_status = 1;
+      $query->created_at = time();
+      $query->save();
+
+      //отправка на почту
+      Mail::send('acme.contactform::mail.message', $vars, function($message) {
+
+          $message->to($this->getUserMail(), 'Admin Person');
+          $message->subject('Сообщение с сайта');
+
+      });
+
+      if($query) {
+        Flash::success('Сообщение успешно отправлено!');
+      } else {
+        Flash::error('Произошла ошибка!');
+      }
+
+    }
+
+  }
+
+  public function onSendMessage()
+  {
+
+    $rules = [
+      'user_phone' => 'required|min:5|max:50',
+      'user_message' => 'required|max:1000'
+    ];
+
+    $messages = [
+      'required' => 'Поле обязательно к заполнению!',
+      'min'      => 'Минимум :min символов!',
+      'max'      => 'Максимум :max символов!'
+    ];
+
+    $validator = Validator::make(Input::all(), $rules, $messages);
+    //если не прошло валидацию
+    if ($validator->fails()) {
+
+      throw new ValidationException($validator);
+
+    } else {
+      //переменные
+      $vars = [
+        'user_name' => Input::get('user_name'),
+        'user_message' => Input::get('user_message'),
+      ];
+
+      //вставка в базу данных
+      $query = new Application();
+      $query->user_phone = Input::get('user_phone');
+      $query->user_message = Input::get('user_message');
       $query->user_ip = $_SERVER["REMOTE_ADDR"];
       $query->user_status = 1;
       $query->created_at = time();

@@ -1,18 +1,17 @@
 <form
+  class="form form_popup ajax-form"
   id="{{ __SELF__.id }}"
-  data-request="{{ __SELF__ }}::onSendMessage"
-  class="form form_person ajax-form"
+  data-request="{{ __SELF__ }}::onSend"
   data-request-validate
   data-request-flash
 >
-  <div class="form__group">
-    <textarea name="user_message" class="form__field form__field_textarea" placeholder="Напишите свой вопрос или опишите свою ситуацию*"></textarea>
-    <span class="form__error" data-validate-for="user_message"></span>
-  </div>
+
   <div class="form__group">
     <input type="text" name="user_phone" class="form__field phone-mask" placeholder="+7(999) 999-99-99" />
     <span class="form__error" data-validate-for="user_phone"></span>
   </div>
+
+  <button type="submit" class="btn form__btn" data-attach-loading data-js-action="confirm-btn">Заказать звонок</button>
 
   <div class="form__privacy">
     <svg xmlns="http://www.w3.org/2000/svg" class="form__privacy-ico" fill="currentColor" class="bi bi-shield-fill-check" viewBox="0 0 16 16">
@@ -23,7 +22,4 @@
       <a href="#!" data-js-action="open-modal" data-modal="privacy">«Политикой конфиденциальности»</a>
     </p>
   </div>
-
-  <button type="submit" class="btn form__btn" data-attach-loading>Задать вопрос</button>
-
 </form>

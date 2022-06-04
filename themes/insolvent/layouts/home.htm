@@ -27,9 +27,6 @@ servicesType = "list"
 
 [videos]
 
-[advantage]
-advantageName = 4
-
 [services services3]
 serviceName = 1
 servicesType = "special"
@@ -44,6 +41,9 @@ galleryType = "slider"
 formType = "payment"
 
 [ContactModal]
+
+[formwidget formwidget6]
+formType = "phone"
 ==
 <!DOCTYPE html>
 <html lang="ru">
@@ -73,11 +73,16 @@ formType = "payment"
               </div>
               <div class="person__container">
                 <div class="person__label">Важное условие</div>
-                <div class="person__title">Мы берёмся только за дела, в успехе которых уверены на 100%, поэтому даём уникальные письменные гарантии на результат</div>
+                <div class="person__title">
+                  Важнейший принцип нашей работы – помощь гражданам, оказавшимся в сложной ситуации.
+                  Мы окажем Вам не только грамотную юридическую помощь, но и поможем психологически.
+                  Готовы развеять все Ваши страхи, связанные с процедурой банкротства.
+                  Оставьте заявку и я лично отвечу на все Ваши вопросы
+                </div>
                 <div class="person__name">Ирина Олеговна Склярова</div>
                 <div class="person__position">управляющий партнер компании «Мой Банкрот»</div>
-                <button type="button" class="btn person__btn" data-js-action="open-modal" data-modal="callback" data-title="Проконсультироваться по телефону с Ириной Скляровой">
-                  Проконсультироваться по телефону с Ириной Скляровой
+                <button type="button" class="btn person__btn" data-js-action="open-modal" data-modal="callback" data-title="Получить консультацию Ирины Скляровой">
+                  Получить консультацию Ирины Скляровой
                 </button>
               </div>
             </div>
@@ -139,17 +144,21 @@ formType = "payment"
               </div>
               <div class="person__container">
                 <div class="person__label">О сотрудничестве с нами</div>
-                <div class="person__title">Для вас работает одна из самых крупных и опытных в России компаний по банкротству</div>
                 <p class="person__descr">
-                  «Наш единственный профиль работы — процедуры личного банкротства, с помощью которых мы помогаем людям преодолевать кризисные моменты в жизни. В Российской Федерации процедура банкротства физических лиц имеют репутацию дорогостоящих и неизведанных процедур. Мы надеемся своей работой повлиять на эту ситуацию и предоставляем всем клиентам простой и понятный сервис по умеренной стоимости, без недоразумений, скрытых условий и связанных с ними удорожаний.
+                  Мой банкрот – Ваш надежный помощник в сфере финансовых проблем.
+                  Наш девиз говорит сам за себя, в первую очередь мы помогаем преодолеть все
+                  трудности на Вашем пути, заключив договор с нашей компанией – Вы можете быть
+                  уверены в грамотности и компетентности наших сотрудников,
+                  Вам будет назначен персональный юрист, который будет с Вами от начала работы до полного списания долгов.
+
                 </p>
                 <p class="person__descr">
-                  У нас максимально простые и понятные договоры с конкретными гарантийными обязательствами. Мы фиксируем стоимость услуг и конкретизируем результат: вы точно знаете все детали и понимаете какие конкретные действия оплачиваете. Наши консультации проводят лично руководители компании. Вся процедура происходит без посредников: рекламных агентов и региональных представителей. А значит, неожиданные сюрпризы и переплата за услуги исключены.»
+                  Руководство компании лично контролирует качество оказываемых услуг, мы всегда с Вами на связи и готовы решить любую проблему
                 </p>
                 <div class="person__name">Глеб Вадимович Михайлов</div>
                 <div class="person__position">управляющий партнер компании «Мой Банкрот»</div>
-                <button type="button" class="btn person__btn" data-js-action="open-modal" data-modal="callback" data-title="Проконсультироваться по телефону с Глебом Михайловым">
-                  Проконсультироваться по телефону с Глебом Михайловым
+                <button type="button" class="btn person__btn" data-js-action="open-modal" data-modal="callback-phone">
+                  Получить консультацию Глеба Михайлова
                 </button>
               </div>
             </div>
@@ -157,75 +166,39 @@ formType = "payment"
 
           {% partial "steps" %}
 
-          <section class="section hurry">
-            <div class="hurry__wrap wrap">
-              <img src="{{ 'hurry.png'|media }}" alt="" class="hurry__clock" />
-              <h3 class="hurry__title">Нужно ли спешить с банкротством?</h3>
-              <div class="hurry__subtitle">Возможные последствия:</div>
-              <div class="hurry__row">
-                <div class="hurry__item">
-                  <img src="{{ 'hurry/procuracy.png'|media }}" alt="Административный штраф" class="hurry__item-img" />
-                  <div class="hurry__item-content">
-                    <div class="hurry__item-title">Административный штраф</div>
-                    <div class="hurry__item-desc">Органы прокуратуры накладывают штраф в размере до 3000 рублей ежемесячно (ч.5 ст. 14.13 КоАП РФ)</div>
-                  </div>
-                </div>
-                <div class="hurry__item">
-                  <img src="{{ 'hurry/law.png'|media }}" alt="Может быть поздно" class="hurry__item-img" />
-                  <div class="hurry__item-content">
-                    <div class="hurry__item-title">Может быть поздно</div>
-                    <div class="hurry__item-desc">Лишение права на списание долгов в будущем (п. 4 ст. 213.28 Закона о банкротстве)</div>
-                  </div>
-                </div>
-                <div class="hurry__item">
-                  <img src="{{ 'hurry/fine.png'|media }}" alt="Штрафы и пени" class="hurry__item-img" />
-                  <div class="hurry__item-content">
-                    <div class="hurry__item-title">Штрафы и пени</div>
-                    <div class="hurry__item-desc">Чем дольше за вами сохраняется невыплаченный долг — тем быстрее рост штрафов, процентов и неустойки и тем агрессивнее становятся кредиторы</div>
-                  </div>
+          <section class="section person">
+            <div class="person__wrap wrap">
+              <div class="person__figure">
+                <div class="person__figure-circle person__figure-circle_bankrupt">
+                  <picture>
+                    <source class="person__figure-img" srcset="{{ 'assets/images/person/bankrupt.jpg'|theme|resize(485,485, { mode: 'crop', quality: '80' }) }}" />
+                    <img class="person__figure-img" src="{{ 'assets/images/person/bankrupt.jpg'|theme|resize(485,485, { mode: 'crop', quality: '80' }) }}" alt="Банкроство" title="Банкроство" loading="lazy" />
+                  </picture>
                 </div>
               </div>
-
-              <div class="hurry__tabs">
-                <div class="hurry__slides">
-                  <span data-hurry="current">1</span> из <span>{{ this.theme.steps|length + 1 }}</span>
-                </div>
-                <div class="hurry__inner">
-                  {% for step in this.theme.steps %}
-                  {% set index = loop.index %}
-                  <div class="hurry__tab{{ index == 1 ? ' hurry__tab_active' : ''}}" data-hurry="tab">
-                    <div class="hurry__tab-content">
-                      <div class="hurry__tab-title">{{ step.title }}</div>
-                      <p class="hurry__tab-descr">{{ step.desc }}</p>
-                    </div>
-                  </div>
-                  {% endfor %}
-                  <div class="hurry__tab" data-hurry="tab">
-                    <div class="hurry__tab-content">
-                      <div class="hurry__tab-title">Начните работу над долгом прямо сейчас!</div>
-                      {% component 'formwidget2' %}
-                    </div>
-                  </div>
-                </div>
-                <div class="hurry__nav">
-                  <button type="button" class="btn hurry__btn hurry__btn_prev" disabled data-hurry="prev">
-                    Назад
-                  </button>
-                  <button type="button" class="btn hurry__btn" data-hurry="next">
-                    Дальше
-                  </button>
-                  <button type="submit" class="btn hurry__btn hurry__btn_hide" data-attach-loading data-hurry="send" form="hurry-form">Отправить заявку</button>
-                </div>
+              <div class="person__container">
+                <div class="person__title">Если кредитор подаст заявление первым:</div>
+                <ul class="person__list">
+                  <li class="person__list-item">Будет вынесен запрет на выезд за границу</li>
+                  <li class="person__list-item">Возможен арест и реализация имущества </li>
+                  <li class="person__list-item">Кредитор заявит ходатайство об утверждении «своего» финансового управляющего, от решения которого будет зависеть исход дела </li>
+                  <li class="person__list-item">Ваш долг не будет списан по результатам процедуры банкротства</li>
+                </ul>
+                <button type="button" class="btn person__btn person__btn_down" data-js-action="open-modal" data-modal="callback">
+                  Получить консультацию юриста
+                </button>
+                <p class="person__descr">
+                  получить консультацию юриста <br>
+                  или звоните <a href="tel:+74932564724">+7(4932) 56-47-24</a>
+                </p>
               </div>
             </div>
           </section>
 
-          {% component 'advantage' %}
-
           <section id="faq" class="section questions">
             <div class="questions__wrap wrap">
               <img src="{{ 'faq.png'|media }}" alt="" class="questions__icon" />
-              <h3 class="questions__title">Процедура банкротства физических лиц — новая для российских граждан, поэтому часто вызывает опасения</h3>
+              <h3 class="questions__title">В процессе подготовки к процедуре банкротства часто возникают вопросы, мы постарались ответить на самые частые </h3>
               <p class="questions__subtitle">Мы ответим на самые частые вопросы, чтобы развеять ваши сомнения</p>
 
                 {% component 'faq' %}
@@ -277,6 +250,16 @@ formType = "payment"
               </button>
               <div class="popup__title" id="popup-title">Получите свою льготу или специальное предложение</div>
               {% component 'formwidget' %}
+            </div>
+
+            <div class="popup__modal" data-modal="callback-phone">
+              <button class="popup__close" data-js-action="close-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="popup__close-ico" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                  <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                </svg>
+              </button>
+              <div class="popup__title">Получить консультацию Глеба Михайлова</div>
+              {% component 'formwidget6' %}
             </div>
 
             <div class="popup__modal" data-modal="success">

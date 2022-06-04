@@ -1,0 +1,62 @@
+<section class="section hurry">
+  <div class="hurry__wrap wrap">
+    <img src="{{ 'hurry.png'|media }}" alt="" class="hurry__clock" />
+    <h3 class="hurry__title">Нужно ли спешить с банкротством?</h3>
+    <div class="hurry__subtitle">Возможные последствия:</div>
+    <div class="hurry__row">
+      <div class="hurry__item">
+        <img src="{{ 'hurry/procuracy.png'|media }}" alt="Административный штраф" class="hurry__item-img" />
+        <div class="hurry__item-content">
+          <div class="hurry__item-title">Административный штраф</div>
+          <div class="hurry__item-desc">Органы прокуратуры накладывают штраф в размере до 3000 рублей ежемесячно (ч.5 ст. 14.13 КоАП РФ)</div>
+        </div>
+      </div>
+      <div class="hurry__item">
+        <img src="{{ 'hurry/law.png'|media }}" alt="Может быть поздно" class="hurry__item-img" />
+        <div class="hurry__item-content">
+          <div class="hurry__item-title">Может быть поздно</div>
+          <div class="hurry__item-desc">Лишение права на списание долгов в будущем (п. 4 ст. 213.28 Закона о банкротстве)</div>
+        </div>
+      </div>
+      <div class="hurry__item">
+        <img src="{{ 'hurry/fine.png'|media }}" alt="Штрафы и пени" class="hurry__item-img" />
+        <div class="hurry__item-content">
+          <div class="hurry__item-title">Штрафы и пени</div>
+          <div class="hurry__item-desc">Чем дольше за вами сохраняется невыплаченный долг — тем быстрее рост штрафов, процентов и неустойки и тем агрессивнее становятся кредиторы</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hurry__tabs">
+      <div class="hurry__slides">
+        <span data-hurry="current">1</span> из <span>{{ this.theme.steps|length + 1 }}</span>
+      </div>
+      <div class="hurry__inner">
+        {% for step in this.theme.steps %}
+        {% set index = loop.index %}
+        <div class="hurry__tab{{ index == 1 ? ' hurry__tab_active' : ''}}" data-hurry="tab">
+          <div class="hurry__tab-content">
+            <div class="hurry__tab-title">{{ step.title }}</div>
+            <p class="hurry__tab-descr">{{ step.desc }}</p>
+          </div>
+        </div>
+        {% endfor %}
+        <div class="hurry__tab" data-hurry="tab">
+          <div class="hurry__tab-content">
+            <div class="hurry__tab-title">Начните работу над долгом прямо сейчас!</div>
+            {% component 'formwidget2' %}
+          </div>
+        </div>
+      </div>
+      <div class="hurry__nav">
+        <button type="button" class="btn hurry__btn hurry__btn_prev" disabled data-hurry="prev">
+          Назад
+        </button>
+        <button type="button" class="btn hurry__btn" data-hurry="next">
+          Дальше
+        </button>
+        <button type="submit" class="btn hurry__btn hurry__btn_hide" data-attach-loading data-hurry="send" form="hurry-form">Отправить заявку</button>
+      </div>
+    </div>
+  </div>
+</section>
