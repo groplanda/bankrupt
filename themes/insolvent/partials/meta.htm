@@ -1,5 +1,17 @@
 description = "Meta tags"
+
+[viewBag]
 ==
+<?php
+function onStart()
+{
+    $styleAsset = 'assets/dist/css/app.css';
+    $lastUpdate = filemtime($this->theme->getPath() . '/' . $styleAsset);
+    $this['stylesheet'] = sprintf('%s?v=%s', $this->controller->themeUrl($styleAsset), $lastUpdate);
+}
+?>
+==
+<hea
 <head>
   <meta charset="utf-8">
   <title>{{this.theme.site_name}} - {{ this.page.title }}</title>
@@ -16,7 +28,7 @@ description = "Meta tags"
   <meta property="og:url" content="http://мой-банкрот.рф">
   <link rel="image_src" href="{{ 'assets/images/logo.png'|theme }}">
   <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}">
-  <link href="{{ 'assets/dist/css/app.css'|theme }}" rel="stylesheet" />
+  <link href="{{ stylesheet }}" rel="stylesheet" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y2XPJQJP4Z"></script>
   <script>
