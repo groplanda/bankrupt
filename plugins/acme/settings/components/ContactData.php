@@ -42,13 +42,20 @@ class ContactData extends ComponentBase
 
   public function prepareVars()
   {
-    if (isset($_COOKIE['selected_city']) && !empty($_COOKIE['selected_city'])) {
-      $cidyId = $_COOKIE['selected_city'];
-      $data = Address::findOrFail((int)$cidyId);
+    $data = [];
+    $count = Address::count();
+
+    if ($count > 1) {
+      if (isset($_COOKIE['selected_city']) && !empty($_COOKIE['selected_city'])) {
+        $cidyId = $_COOKIE['selected_city'];
+        $data = Address::findOrFail((int)$cidyId);
+      } else {
+        $data = Address::orderBy('sort_order', 'asc')->first();
+      }
     } else {
       $data = Address::orderBy('sort_order', 'asc')->first();
     }
-    $count = Address::count();
+
     return [
       'data' => $data,
       'count' => $count

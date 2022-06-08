@@ -16,6 +16,8 @@
   <p class="mobile-nav__content-descr">{{contact.open}}</p>
 </div>
 {% endif %}
+{% if count > 1 %}
 <button type="button" data-js-action="open-modal" data-modal="address" class="header__btn header__btn_mobile btn">
   <span class="header__btn-text">Выбрать город</span>
 </button>
+{% endif %}

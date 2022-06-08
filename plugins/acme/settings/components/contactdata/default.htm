@@ -10,7 +10,9 @@
   <a itemprop="telephone" class="header__address-phone" href="tel:+{{phone.link}}" data-address="phone">{{phone.text}}</a>
   {% endfor %}
   <div class="header__address-open" data-address="open">{{contact.open}}</div>
+  {% if count > 1 %}
   <button type="button" data-js-action="open-modal" data-modal="address" class="header__btn btn">
     <span class="header__btn-text">Выбрать город</span>
   </button>
+  {% endif %}
 </div>
