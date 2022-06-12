@@ -217,6 +217,10 @@
     @media(max-width: 575px) {
       display: none;
     }
+
+    &_hidden {
+      display: none;
+    }
   }
 
   &__nav-wrap {

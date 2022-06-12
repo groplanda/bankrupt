@@ -65,7 +65,7 @@ templateType = "default"
     </button>
 
   </div>
-  <nav class="header__nav" data-js-action="header">
+  <nav class="header__nav{{ispage ? ' header__nav_hidden' : ''}}" data-js-action="header">
     <div class="wrap header__nav-wrap">
       <a href="#intro" class="header__nav-link" data-js="scroll-to">О нас</a>
       <a href="#services" class="header__nav-link" data-js="scroll-to">Услуги по банкротству</a>

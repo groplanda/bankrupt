@@ -1,0 +1,152 @@
+description = "Videopage"
+
+[formwidget]
+formType = "third"
+
+[formwidget formwidget2]
+formType = "second"
+
+[formwidget formwidget3]
+formType = "first"
+
+[formwidget formwidget4]
+formType = "check"
+
+[services services2]
+serviceName = 1
+servicesType = "list"
+
+[ContactModal]
+
+[formwidget formwidget6]
+formType = "phone"
+==
+<!DOCTYPE html>
+<html lang="ru">
+    {% partial "meta" %}
+    <body>
+        <!-- Header -->
+        {% partial "header" ispage="true" %}
+
+        <!-- Content -->
+        <main class="main">
+          <div class="page-video section">
+            <div class="page-video__wrap wrap">
+              <div class="page-video__container">
+                <h2 class="page-video__title">{{this.theme.video_title|raw}}</h2>
+                <div class="page-video__group">
+                  <video
+                    class="page-video__src"
+                    controls="controls"
+                    poster="{{'video-preview.png'|media}}"
+                    src="{{'assets/video/video.mp4'|theme}}">
+                  </video>
+                </div>
+                <a href="{{'homepage'|page}}" class="btn page-video__btn">На главную</a>
+              </div>
+            </div>
+          </div>
+        </main>
+        <div class="popup" data-js-action="modal">
+
+          <div class="popup__dialog">
+            <div class="popup__modal popup__modal_lg" data-modal="header">
+              <button class="popup__close" data-js-action="close-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="popup__close-ico" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                  <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                </svg>
+              </button>
+              {% component 'services2' %}
+            </div>
+
+            <div class="popup__modal" data-modal="callback">
+              <button class="popup__close" data-js-action="close-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="popup__close-ico" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                  <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                </svg>
+              </button>
+              <div class="popup__title" id="popup-title">Получите свою льготу или специальное предложение</div>
+              {% component 'formwidget' %}
+            </div>
+
+            <div class="popup__modal" data-modal="callback-phone">
+              <button class="popup__close" data-js-action="close-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="popup__close-ico" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                  <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                </svg>
+              </button>
+              <div class="popup__title">Получить консультацию Глеба Михайлова</div>
+              {% component 'formwidget6' %}
+            </div>
+
+            <div class="popup__modal" data-modal="success">
+              <button class="popup__close" data-js-action="close-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="popup__close-ico" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                  <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                </svg>
+              </button>
+              <div class="popup__title">Спасибо, вскоре мы с вами свяжемся!</div>
+              <div class="popup__container">
+                <svg xmlns="http://www.w3.org/2000/svg" class="popup__success-ico" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                  <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                  <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+                </svg>
+                <a
+                  href="https://drive.google.com/file/d/1tKbWMtlOGobNRFlhHRaLlGFgPfeFkWuc/view"
+                  target="_blank" rel="noopener noreferrer"
+                  class="btn form__btn form__btn_download"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="form__btn-download">
+                  <g data-name="Layer 2">
+                    <g data-name="download">
+                      <rect width="24" height="24" opacity="0"/>
+                      <rect x="4" y="18" width="16" height="2" rx="1" ry="1"/>
+                      <rect x="3" y="17" width="4" height="2" rx="1" ry="1" transform="rotate(-90 5 18)"/>
+                      <rect x="17" y="17" width="4" height="2" rx="1" ry="1" transform="rotate(-90 19 18)"/>
+                      <path d="M12 15a1 1 0 0 1-.58-.18l-4-2.82a1 1 0 0 1-.24-1.39 1 1 0 0 1 1.4-.24L12 12.76l3.4-2.56a1 1 0 0 1 1.2 1.6l-4 3a1 1 0 0 1-.6.2z"/>
+                      <path d="M12 13a1 1 0 0 1-1-1V4a1 1 0 0 1 2 0v8a1 1 0 0 1-1 1z"/>
+                    </g>
+                  </g>
+                </svg>
+                Получить справочник</a>
+              </div>
+            </div>
+
+            <div class="popup__modal popup__modal_lg" data-modal="privacy">
+              <button class="popup__close" data-js-action="close-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="popup__close-ico" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                  <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                </svg>
+              </button>
+              <div class="popup__title">Политика конфиденциальности</div>
+              <div class="popup__privacy">
+                {% content 'privacy.htm' %}
+              </div>
+            </div>
+
+            <div class="popup__modal" data-modal="address">
+              <button class="popup__close" data-js-action="close-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="popup__close-ico" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                  <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                </svg>
+              </button>
+              {% component 'ContactModal' %}
+            </div>
+
+          </div>
+
+        </div>
+
+        <button class="button-up" id="button-up">
+          <svg xmlns="http://www.w3.org/2000/svg" class="button-up__ico" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+            <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+          </svg>
+        </button>
+        <!-- Footer -->
+        {% partial "footer" %}
+        {% partial "scripts" %}
+        {% if this.theme.site_metrika|length > 0 %}
+        {{ this.theme.site_metrika|raw }}
+        {% endif %}
+    </body>
+</html>

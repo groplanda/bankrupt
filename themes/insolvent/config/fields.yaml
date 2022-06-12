@@ -15,6 +15,7 @@ tabs:
       Общие: icon-cogs
       Главная страница: icon-home
       Этапы: icon-paw
+      Видео: icon-play
   fields:
       phone:
           type: text
@@ -123,3 +124,8 @@ tabs:
               size: large
               span: full
         tab: Этапы
+      video_title:
+        type: text
+        label: Заголовок видео
+        span: full
+        tab: Видео
