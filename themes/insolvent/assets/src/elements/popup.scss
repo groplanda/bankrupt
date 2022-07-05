@@ -145,6 +145,35 @@
     }
   }
 
+  &__description {
+    color: $blueColor;
+    font-size: 19px;
+    font-weight: 600;
+    text-align: center;
+
+    @media(max-width: 767px) {
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__gift {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__gift-image {
+    flex: 0 1 90px;
+    display: flex;
+    margin: 40px auto;
+
+    @media(max-width: 767px) {
+      margin: 20px auto;
+      flex: 0 1 60px;
+    }
+  }
+
   &__success-ico {
     display: flex;
     color: $greenColor;

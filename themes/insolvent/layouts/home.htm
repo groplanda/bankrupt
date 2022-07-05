@@ -313,6 +313,46 @@ formType = "phone"
               {% component 'ContactModal' %}
             </div>
 
+            <div class="popup__modal" data-modal="download">
+              <button class="popup__close" data-js-action="close-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="popup__close-ico" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                  <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                </svg>
+              </button>
+              <p class="popup__description">
+                Вы получите в подарок список документов требуемых для подачи на списание совершенно бесплатно
+              </p>
+              <p class="popup__description">
+                + В подарок Вы получите бесплатный гайд "5 шагов к успешной процедуре списания долгов"
+              </p>
+              <div class="popup__container">
+                <div class="popup__gift">
+                  <div class="popup__gift-image">
+                    <img src="{{ 'assets/images/gift.png'|theme }}" alt="ваш подарок" class="popup__gift-ico" />
+                  </div>
+                </div>
+                <a
+                  href="{{'assets/files/мой банкрот.pdf'|theme}}"
+                  download
+                  class="btn form__btn form__btn_download"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="form__btn-download">
+                    <g data-name="Layer 2">
+                      <g data-name="download">
+                        <rect width="24" height="24" opacity="0"/>
+                        <rect x="4" y="18" width="16" height="2" rx="1" ry="1"/>
+                        <rect x="3" y="17" width="4" height="2" rx="1" ry="1" transform="rotate(-90 5 18)"/>
+                        <rect x="17" y="17" width="4" height="2" rx="1" ry="1" transform="rotate(-90 19 18)"/>
+                        <path d="M12 15a1 1 0 0 1-.58-.18l-4-2.82a1 1 0 0 1-.24-1.39 1 1 0 0 1 1.4-.24L12 12.76l3.4-2.56a1 1 0 0 1 1.2 1.6l-4 3a1 1 0 0 1-.6.2z"/>
+                        <path d="M12 13a1 1 0 0 1-1-1V4a1 1 0 0 1 2 0v8a1 1 0 0 1-1 1z"/>
+                      </g>
+                    </g>
+                  </svg>
+                Скачать подарок
+                </a>
+              </div>
+            </div>
+
           </div>
 
         </div>

@@ -220,14 +220,16 @@ $(document).ready(function() {
   $('.ajax-form').on('ajaxSuccess', function(event) {
     event.currentTarget.reset();
 
-    if ($(this).hasClass("quiz-form")) {
+    const isQuiz = $(this).hasClass("quiz-form");
+
+    if (isQuiz) {
       $(this).parents(".calc").slideUp();
     }
 
     setTimeout(() => {
 
       const popup = $('[data-js-action="modal"]');
-      const currentModal = popup.find(`[data-modal="success"]`)
+      const currentModal = isQuiz ? popup.find(`[data-modal="download"]`) : popup.find(`[data-modal="success"]`)
 
       if (currentModal.length) {
         popup.find('.popup__modal').each(function() {
