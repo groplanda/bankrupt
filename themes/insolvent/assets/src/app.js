@@ -35,7 +35,11 @@ $(document).ready(function() {
 
   $(window).on('mouseleave', function(e) {
     if (e.clientY < 0 && !IS_OPEN_MODAL) {
-      $('[data-modal="callback" ]').first().trigger('click');
+      const firstButton = $('[data-modal="callback" ]').first();
+      const currentModal = firstButton.data('modal');
+      firstButton.trigger('click');
+      const form = $(`[data-modal="${currentModal}"]`).find('form');
+      $(form).attr('data-yandex-target', 'pop-ap');
       $('#popup-title').text('Не нашли то что нужно? Оставьте заявку и мы с вами свяжемся!')
     }
   })
@@ -46,7 +50,8 @@ $(document).ready(function() {
     const modalId = $(this).data('modal'),
           popup = $('[data-js-action="modal"]'),
           currentModal = popup.find(`[data-modal="${modalId}"]`),
-          triggerTitle = $(this).data('title');
+          triggerTitle = $(this).data('title'),
+          yandexTarget = $(this).data('yandex-target') || null;
 
     if (currentModal.length) {
 
@@ -62,6 +67,11 @@ $(document).ready(function() {
       $(document.body).addClass('modal-open');
       setOffset(document.body, bodyOffset);
       currentModal.fadeIn();
+
+      if (yandexTarget) {
+        currentModal.find('form').attr('data-yandex-target', yandexTarget);
+      }
+
     }
 
   })
@@ -224,6 +234,12 @@ $(document).ready(function() {
 
     if (isQuiz) {
       $(this).parents(".calc").slideUp();
+    }
+
+    const yandexTarget = $(this).attr('data-yandex-target');
+
+    if (yandexTarget) {
+      ym(73274563, 'reachGoal', yandexTarget);
     }
 
     setTimeout(() => {
