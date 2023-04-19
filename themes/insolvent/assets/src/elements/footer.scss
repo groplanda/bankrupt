@@ -12,11 +12,6 @@
 
   &__wrap {
     align-items: stretch;
-    margin-bottom: 60px;
-
-    @media(max-width: 767px) {
-      margin-bottom: 30px;
-    }
 
     @media(max-width: 767px) {
       flex-direction: column;
@@ -193,6 +188,28 @@
     @media(max-width: 767px) {
       font-size: 12px;
       margin-bottom: 5px;
+    }
+  }
+
+  &__company {
+    width: 100%;
+    padding: 30px 0;
+
+    @media(max-width: 767px) {
+      padding: 15px 0;
+    }
+  }
+
+  &__company-text {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 8px;
+
+    @media(max-width: 767px) {
+      font-size: 12px;
+      margin-bottom: 4px;
     }
   }
 }
